@@ -1,1 +1,61 @@
-<p>create-event works!</p>
+<form>
+    <div class="container">
+        <h1 class="mt-5">Veranstaltung hinzufuegen</h1>
+    
+        <div class="mb-3 row">
+            <label for="eventtitle" class="col-sm-2 col-form-label">Veranstaltungsname</label>
+            <div class="col-sm-10">
+            <input type="text" class="form-control" id="eventtitle" placeholder="Titel der Veranstaltung" [formControl]="titleFC" [class]="titleFC.valid ? 'is-valid' : 'is-invalid'">
+            </div>
+        </div>
+    
+        <div class="mb-3 row">
+            <label for="date" class="col-sm-2 col-form-label">Datum</label>
+            <div class="col-sm-10">
+            <input type="text" class="form-control" id="date" placeholder="Datum der Veranstaltung" [formControl]="dateFC" [class]="dateFC.valid ? 'is-valid' : 'is-invalid'">
+            </div>
+        </div>
+    
+        <div class="mb-3 row">
+            <label for="starttime" class="col-sm-2 col-form-label">Beginn</label>
+            <div class="col-sm-10">
+            <input type="time" class="form-control" id="starttime" [formControl]="starttimeFC" [class]="starttimeFC.valid ? 'is-valid' : 'is-invalid'">
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label for="endtime" class="col-sm-2 col-form-label">Ende</label>
+            <div class="col-sm-10">
+            <input type="time" class="form-control" id="endtime" [formControl]="endtimeFC" [class]="endtimeFC.valid ? 'is-valid' : 'is-invalid'">
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label for="location" class="col-sm-2 col-form-label">Ort</label>
+            <div class="col-sm-10">
+            <input type="text" class="form-control" id="location" placeholder="Ort der Veranstaltung" [formControl]="locationFC" [class]="locationFC.valid ? 'is-valid' : 'is-invalid'">
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label for="description" class="col-sm-2 col-form-label">Beschreibung</label>
+            <div class="col-sm-10">
+            <input type="text" class="form-control" id="description" placeholder="Beschreibung der Veranstaltung" [formControl]="descriptionFC" [class]="descriptionFC.valid ? 'is-valid' : 'is-invalid'">
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <div class="col-sm-10 offset-sm-2">
+                <button type="button" class="create-button" (click)="create()">Hinzufügen</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="row ">
+        <button type="submit" class="col-5 btn btn-secondary">Aktualisieren</button>
+        <div class="col-2"></div>
+        <button type="button" class="col-5 btn btn-secondary" (click)="cancel() ">Abbrechen</button>
+      </div>
+
+   
+</form>
