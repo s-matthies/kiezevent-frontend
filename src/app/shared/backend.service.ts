@@ -15,4 +15,22 @@ export class BackendService {
   getAllEvents(): Observable<Event[]> {
     return this.http.get<Event[]>(this.backendUrl + "/events"); // GET-Request an die REST-Schnittstelle senden 
   }
+
+  getEventById(id: number): Observable<Event> {
+    return this.http.get<Event>(this.backendUrl + "/events/" + id); // GET-Request an die REST-Schnittstelle senden
+  }
+
+  createEvent(event: Event): Observable<Event> {
+    return this.http.post<Event>(this.backendUrl + "/events", event); // POST-Request an die REST-Schnittstelle senden
+  }
+
+  updateEvent(event: Event): Observable<Event> {
+    return this.http.put<Event>(this.backendUrl + "/events/" + event.id, event); // PUT-Request an die REST-Schnittstelle senden
+  }
+
+  deleteEvent(id: number): Observable<Event> {
+    return this.http.delete<Event>(this.backendUrl + "/events/" + id); // DELETE-Request an die REST-Schnittstelle senden
+  }
+
+  // weitere Methoden für die REST-Schnittstelle
 }
