@@ -1,0 +1,38 @@
+.create-button {
+    background-color: #009970;
+      color: #fff;
+      font-size: 14px; /* Größe des Textes */
+      padding: 8px 20px;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: 0.3s background-color;
+      width: 20%;
+    position: absolute;   
+    right: 10%;
+
+
+  }
+  
+  .create-button:hover {
+    background-color: #00b383;
+  }
+
+
+  .btn-primary {
+    background-color: #009970;
+    border: none;
+    color: #fff;
+    font-size: 14px; /* Größe des Textes */
+    padding: 8px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: 0.3s background-color;
+  }
+
+    .btn-primary:hover {
+        background-color: #00b383;
+    }   
+
+   
+    
+    
