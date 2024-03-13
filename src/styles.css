@@ -1,3 +1,7 @@
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
+
+main {
+    padding-top: 80px; /* Passen Sie diese Zahl an die tatsächliche Höhe Ihrer Navbar an */
+  }
