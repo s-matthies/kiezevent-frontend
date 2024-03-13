@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { BackendService } from '../shared/backend.service';
 import { Event } from '../shared/event';
 
@@ -9,22 +9,23 @@ import { Event } from '../shared/event';
   templateUrl: './eventlist.component.html',
   styleUrl: './eventlist.component.css'
 })
-export class EventlistComponent implements OnInit{
+export class EventlistComponent implements OnInit{ // Oninit -> Lifecycle-Hook, der beim Initialisieren der Komponente aufgerufen wird
 
-  events!: Event[]; // ! bedeutet das, dass die Variable initialisiert wird, bevor sie benutzt wird
+  events: Event[] = []; // Array für die Events
 
-  constructor(private bs : BackendService) { }
+  bs = inject (BackendService); // BackendService per Dependency Injection einbinden
+  // andere Möglichkeit: constructor(private bs : BackendService) { }
 
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    this.readAllEvents(); // beim Initialisieren der Komponente alle Events auslesen
   }
 
-  readAll(): void {
-    this.bs.getAllEvents().subscribe( // BackendService aufrufen
+  readAllEvents(): void {
+    this.bs.getAllEvents().subscribe( // BackendService aufrufen // subscribe() -> wir melden uns an
           {
-            next: (response) => {
+            next: (response) => { // next() -> gibt uns den eigentlichen Wert zurück; wir reagieren auf die Antwort
                   this.events = response;
-                  console.log(this.events);
+                  console.log("events", this.events);
                   return this.events;
                 },
             error: (err) => console.log(err),
