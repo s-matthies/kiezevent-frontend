@@ -96,10 +96,8 @@ export class UpdateEventComponent implements OnInit{
     }
   }
 
-  cancel() {
-    this.titleFC.reset();
-    this.dateFC.reset();
-    this.locationFC.reset();
+  cancel(): void {
+    this.readOne(this.id);
   }
 
   private getDismissReason(reason: any): string {

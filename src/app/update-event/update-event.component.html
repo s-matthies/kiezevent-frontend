@@ -13,9 +13,8 @@
     <div class="mb-3 form-floating">
       <input type="date" class="form-control" id="idLastname" placeholder="Datum der Veranstaltung " [formControl]="dateFC"
         [class]="dateFC.touched ? dateFC.valid ? 'is-valid' : 'is-invalid' : ''">
-      <label for="idLastname">Datum</label>
-      <div class="invalid-feedback">
-        Bitte geben Sie das Datum der Veranstaltung ein, z.B. 01.12.2024.
+        <label for="idLastname">Datum (aktuell eingetragenes Datum: {{ dateFC.value | date:'dd.MM.yyyy' }})</label>      <div class="invalid-feedback">
+        Bitte geben Sie das Datum der Veranstaltung ein.
       </div>
     </div>
   
