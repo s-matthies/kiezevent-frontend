@@ -45,6 +45,13 @@
         </div>
 
         <div class="mb-3 row">
+            <label for="link" class="col-sm-2 col-form-label">Link</label>
+            <div class="col-sm-10">
+            <input type="text" class="form-control" id="link" placeholder="Link zur Veranstaltung" [formControl]="linkFC" [class]="linkFC.valid ? 'is-valid' : 'is-invalid'">
+            </div>
+        </div>
+
+        <div class="mb-3 row">
             <div class="col-sm-10 offset-sm-2">
                 <button type="button" class="create-button" (click)="create()">Hinzufügen</button>
             </div>
