@@ -23,8 +23,8 @@ export class UpdateEventComponent implements OnInit{
   dateFC = new FormControl(new Date(), [Validators.required]);
   locationFC = new FormControl('', [Validators.required]);
 
-  private modalService = inject(NgbModal);
-  private bs = inject(BackendService)
+  private modalService = inject(NgbModal); 
+  private bs = inject(BackendService) 
   private route = inject(ActivatedRoute)
   private router = inject(Router);
 
