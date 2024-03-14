@@ -1,1 +1,26 @@
 @import url('../../../node_modules/bootstrap-icons/font/bootstrap-icons.css');
+
+.container {
+    margin-bottom: 100px; /* unteren Abstand hinzufügen, um Platz für den Footer zu schaffen */
+    margin: 80px;
+}
+
+.card {
+    margin-bottom: 40px;
+}
+
+.pagination {
+    margin-top: 20px;  
+    
+}
+
+.pagination-container {
+    display: flex;
+    justify-content: center;
+}
+
+.card-subtitle {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+    margin-bottom: 10px; /* optional, um etwas Abstand zwischen dem Text und der Linie zu geben */
+  }
