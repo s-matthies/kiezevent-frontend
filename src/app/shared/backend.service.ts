@@ -24,8 +24,8 @@ export class BackendService {
     return this.http.post<Event>(this.backendUrl + "/events", event); // POST-Request an die REST-Schnittstelle senden
   }
 
-  updateEvent(event: Event): Observable<Event> {
-    return this.http.put<Event>(this.backendUrl + "/events/" + event.id, event); // PUT-Request an die REST-Schnittstelle senden
+  updateOneMember(event: Event, id: number): Observable<Event> {
+    return this.http.put<Event>(this.backendUrl + "/events/" + id, event);
   }
 
   deleteEvent(id: number): Observable<Event> {
