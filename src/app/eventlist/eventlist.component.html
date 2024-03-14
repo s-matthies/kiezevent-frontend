@@ -1,1 +1,36 @@
-<p>eventlist works!</p>
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+      <div class="col" *ngFor="let event of pagedEvents">
+        <div class="card h-100 mb-4">
+          <div class="card-body">
+            <h5 class="card-title">{{ event.title }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{ event.date | date:'dd.MM.yyyy' }} | {{ event.starttime }} - {{ event.endtime }}</h6>
+            <p class="card-text">{{ event.description }}</p>
+            <a *ngIf="event.link" [href]="event.link" class="card-link">Weitere Infos...</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+
+<!-- Pagination -->
+    <div class="pagination-container">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+            <li class="page-item" [class.disabled]="currentPage === 1">
+                <a class="page-link" href="#" aria-label="Previous" (click)="previousPage(); $event.preventDefault()" tabindex="-1" [attr.aria-disabled]="currentPage === 1 ? true : null">
+                <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li class="page-item" *ngFor="let page of pages" [class.active]="currentPage === page">
+                <a class="page-link" href="#" (click)="setPage(page); $event.preventDefault()">{{ page }}</a>
+            </li>
+            <li class="page-item" [class.disabled]="currentPage === totalPages">
+                <a class="page-link" href="#" aria-label="Next" (click)="nextPage(); $event.preventDefault()" [attr.aria-disabled]="currentPage === totalPages ? true : null">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+            </ul>
+        </nav>
+    </div>
+</div>
