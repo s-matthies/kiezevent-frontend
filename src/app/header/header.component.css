@@ -4,11 +4,19 @@
     box-shadow: 0 2px 4px 0 rgba(0,0,0,.1);
   }
   
-  .navbar-brand {
+.offcanvas-title {
+    font-size: 24px; /* Größe des Textes */
     font-weight: 500;
+    color: #009970;
+  }
+
+  .navbar-brand {
+    font-weight: 900;
     color: #009970;
     font-size: 24px; /* Größe des Textes */
     transition: 0.3s color;
+    /* Schatten */
+    text-shadow: 2px 2px 2px #b9abab;
   }
   
   .login-button {
@@ -43,14 +51,14 @@
   .nav-link:hover, .nav-link.active {
     color: #000;
   }
+
   
+  .nav-link {
+    position: relative;
+  }
   
-    .nav-link {
-      position: relative;
-    }
-  
-  @media (min-width: 992px) {
-      .nav-link::before {
+  @media (min-width: 992px) { 
+      .nav-link::before { 
       content: "";
       position: absolute;   
       bottom: 0;
@@ -63,8 +71,10 @@
       transition: 0.3s ease-in-out;
       }
   
-      .nav-link:hover::before, .nav-link.active::before {
+      .nav-link:hover::before, .nav-link.active::before { 
       width: 100%;
       visibility: visible;
       }
   }
+
+  

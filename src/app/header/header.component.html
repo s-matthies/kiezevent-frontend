@@ -3,18 +3,18 @@
     <div class="container-fluid"> <!-- container-fluid = full width container -->
         <!-- container-fluid: Diese Klasse wird auf den Container angewendet, der die Navbar-Elemente enthält. Sie ermöglicht es dem Container, 
             sich an verschiedene Bildschirmgrößen anzupassen und den verfügbaren Platz optimal zu nutzen. -->
-      <a class="navbar-brand me-auto" href="#">Logo KiezEvents</a> <!-- me-auto = margin end auto, that means the margin will be set to auto -->
+      <a class="navbar-brand me-auto" href="#">KiezEvents</a> <!-- me-auto = margin end auto, that means the margin will be set to auto -->
       <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel"> 
         <!-- offcanvas offcanvas-end: Diese Klassen werden auf das Element angewendet, das das Offcanvas-Menü darstellt. offcanvas aktiviert 
             das Offcanvas-Verhalten und offcanvas-end positioniert das Menü am rechten Bildschirmrand. -->
         <div class="offcanvas-header">
-          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Logo</h5>
+          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">KiezEvents</h5>
           <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
           <ul class="navbar-nav justify-content-center flex-grow-1 pe-3"> 
             <li class="nav-item">
-              <a class="nav-link active mx-lg-2" aria-current="page" [routerLink]="'/'">Home</a>
+              <a class="nav-link active mx-lg-2" aria-current="page" [routerLink]="'/'">Home</a> 
             </li>
             <li class="nav-item">
               <a class="nav-link mx-lg-2" [routerLink]="'/event'">Veranstaltungen</a> 
