@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, Time } from '@angular/common';
 import { Component, OnInit, TemplateRef, inject } from '@angular/core';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ModalDismissReasons, NgbDatepickerModule, NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -21,7 +21,11 @@ export class UpdateEventComponent implements OnInit{
 
   titleFC = new FormControl('', [Validators.required]);
   dateFC = new FormControl(new Date(), [Validators.required]);
+  starttimeFC = new FormControl({ hours: 0, minutes: 0 } as Time, [Validators.required]); // Anfangswerte für starttime und endtime festlegen
+  endtimeFC = new FormControl({ hours: 0, minutes: 0 } as Time, [Validators.required]);
   locationFC = new FormControl('', [Validators.required]);
+  descriptionFC = new FormControl('', [Validators.required]);
+  linkFC = new FormControl('', [Validators.required]); 
 
   private modalService = inject(NgbModal); 
   private bs = inject(BackendService) 
@@ -42,8 +46,13 @@ export class UpdateEventComponent implements OnInit{
               console.log(this.event);
               this.titleFC.setValue(this.event.title);
               this.dateFC.setValue(new Date(this.event.date));
+              this.starttimeFC.setValue(this.event.starttime);
+              this.endtimeFC.setValue(this.event.endtime);
               this.locationFC.setValue(this.event.location);
+              this.descriptionFC.setValue(this.event.description);
+              this.linkFC.setValue(this.event.link);
               return this.event;
+              
       },
       error: (err) => console.log(err),
       complete: () => console.log('readOne() completed')
@@ -51,7 +60,7 @@ export class UpdateEventComponent implements OnInit{
   }
 
   private formValid() {
-    return this.titleFC.valid && this.dateFC.valid && this.locationFC.valid;
+    return this.titleFC.valid && this.dateFC.valid && this.locationFC.valid && this.starttimeFC.valid && this.endtimeFC.valid && this.descriptionFC.valid && this.linkFC.valid;
   }
 
   updateEvent(content: TemplateRef<any>) {
@@ -110,4 +119,11 @@ export class UpdateEventComponent implements OnInit{
       return `with: ${reason}`;
   }
 }
+
+// Methode zum Konvertieren einer Zeichenfolge in "Time"
+convertToTime(timeString: string): Time {
+  const [hours, minutes] = timeString.split(':').map(part => parseInt(part));
+  return { hours: hours, minutes: minutes };
+}
+
 }
