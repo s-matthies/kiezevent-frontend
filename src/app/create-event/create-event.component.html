@@ -1,68 +1,95 @@
 <form>
-    <div class="container">
-        <h1 class="mt-5">Veranstaltung hinzufuegen</h1>
+    <div class="container mt-5">
+        <h1 class="my-4">Veranstaltung hinzufügen</h1>
     
-        <div class="mb-3 row">
-            <label for="eventtitle" class="col-sm-2 col-form-label">Veranstaltungsname</label>
-            <div class="col-sm-10">
-            <input type="text" class="form-control" id="eventtitle" placeholder="Titel der Veranstaltung" [formControl]="titleFC" [class]="titleFC.valid ? 'is-valid' : 'is-invalid'">
+        <div class="row mb-3">
+            <div class="col">
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="idFirstname" placeholder="Titel der Veranstaltung" [formControl]="titleFC"
+                        [class]="titleFC.valid ? 'is-valid' : 'is-invalid'">
+                    <label for="idFirstname">Veranstaltungsname</label>
+                    <div class="invalid-feedback">
+                        Bitte geben Sie den Namen der Veranstaltung ein.
+                    </div>
+                </div>
             </div>
-        </div>
-    
-        <div class="mb-3 row">
-            <label for="date" class="col-sm-2 col-form-label">Datum</label>
-            <div class="col-sm-10">
-            <input type="date" class="form-control" id="date" placeholder="Datum der Veranstaltung" [formControl]="dateFC" [class]="dateFC.valid ? 'is-valid' : 'is-invalid'">
-            </div>
-        </div>
-    
-        <div class="mb-3 row">
-            <label for="starttime" class="col-sm-2 col-form-label">Beginn</label>
-            <div class="col-sm-10">
-            <input type="time" class="form-control" id="starttime" [formControl]="starttimeFC" [class]="starttimeFC.valid ? 'is-valid' : 'is-invalid'">
-            </div>
-        </div>
-
-        <div class="mb-3 row">
-            <label for="endtime" class="col-sm-2 col-form-label">Ende</label>
-            <div class="col-sm-10">
-            <input type="time" class="form-control" id="endtime" [formControl]="endtimeFC" [class]="endtimeFC.valid ? 'is-valid' : 'is-invalid'">
+            <div class="col">
+                <div class="form-floating">
+                    <input type="date" class="form-control" id="idLastname" placeholder="Datum der Veranstaltung " [formControl]="dateFC"
+                        [class]="dateFC.valid ? 'is-valid' : 'is-invalid'">
+                    <label for="idLastname">Datum</label>
+                    <div class="invalid-feedback">
+                        Bitte geben Sie das Datum der Veranstaltung ein.
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="mb-3 row">
-            <label for="location" class="col-sm-2 col-form-label">Ort</label>
-            <div class="col-sm-10">
-            <input type="text" class="form-control" id="location" placeholder="Ort der Veranstaltung" [formControl]="locationFC" [class]="locationFC.valid ? 'is-valid' : 'is-invalid'">
+        <div class="row mb-3">
+            <div class="col">
+                <div class="form-floating">
+                    <input type="time" class="form-control" id="starttime" placeholder="Beginn der Veranstaltung" [formControl]="starttimeFC"
+                        [class]="starttimeFC.valid ? 'is-valid' : 'is-invalid'">
+                    <label for="starttime">Beginn</label>
+                    <div class="invalid-feedback">
+                        Bitte geben Sie den Beginn der Veranstaltung ein.
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-floating">
+                    <input type="time" class="form-control" id="endtime" placeholder="Ende der Veranstaltung" [formControl]="endtimeFC"
+                        [class]="endtimeFC.valid ? 'is-valid' : 'is-invalid'">
+                    <label for="endtime">Ende</label>
+                    <div class="invalid-feedback">
+                        Bitte geben Sie das Ende der Veranstaltung ein.
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="mb-3 row">
-            <label for="description" class="col-sm-2 col-form-label">Beschreibung</label>
-            <div class="col-sm-10">
-            <input type="text" class="form-control" id="description" placeholder="Beschreibung der Veranstaltung" [formControl]="descriptionFC" [class]="descriptionFC.valid ? 'is-valid' : 'is-invalid'">
+        <div class="row mb-3">
+            <div class="col">
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="location" placeholder="Ort der Veranstaltung" [formControl]="locationFC"
+                        [class]="locationFC.valid ? 'is-valid' : 'is-invalid'">
+                    <label for="location">Ort</label>
+                    <div class="invalid-feedback">
+                        Bitte geben Sie eine Veranstaltungsort ein.
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="link" placeholder="Link zur Veranstaltung" [formControl]="linkFC"
+                        [class]="linkFC.valid ? 'is-valid' : 'is-invalid'">
+                    <label for="link">Link (optional)</label>
+                    <div *ngIf="linkFC.invalid && (linkFC.dirty || linkFC.touched)" class="invalid-feedback">
+                        Bitte geben Sie einen gültigen Link zur Veranstaltung ein (optional).
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="mb-3 row">
-            <label for="link" class="col-sm-2 col-form-label">Link</label>
-            <div class="col-sm-10">
-            <input type="text" class="form-control" id="link" placeholder="Link zur Veranstaltung" [formControl]="linkFC" [class]="linkFC.valid ? 'is-valid' : 'is-invalid'">
+        <div class="mb-3">
+            <label for="description" class="form-label">Beschreibung</label>
+            <div class="form-floating">
+                <textarea class="form-control" id="description" placeholder="Beschreibung der Veranstaltung" [formControl]="descriptionFC"
+                    [class]="descriptionFC.valid ? 'is-valid' : 'is-invalid'"></textarea>
+            </div>
+            <div class="invalid-feedback">
+                Bitte geben Sie eine kurze Beschreibung der Veranstaltung ein.
             </div>
         </div>
 
-        <div class="mb-3 row">
-            <div class="col-sm-10 offset-sm-2">
-                <button type="button" class="create-button" (click)="create()">Hinzufügen</button>
+        <div class="row mb-3">
+            <div class="col">
+                <button type="submit" class="w-100 btn btn-success">Hinzufügen</button>
+            </div>
+            <div class="col">
+                <button type="button" class="w-100 btn btn-secondary" (click)="cancel()">Abbrechen</button>
             </div>
         </div>
     </div>
-
-    <div class="row ">
-        <button type="submit" class="col-5 btn btn-secondary">Aktualisieren</button>
-        <div class="col-2"></div>
-        <button type="button" class="col-5 btn btn-secondary" (click)="cancel() ">Abbrechen</button>
-      </div>
-
-   
 </form>
+
