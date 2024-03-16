@@ -23,4 +23,25 @@
     border-bottom: 1px solid #ccc;
     padding-bottom: 5px;
     margin-bottom: 10px; /* optional, um etwas Abstand zwischen dem Text und der Linie zu geben */
-  }
+}
+
+.card-body {
+    position: relative; /* Relative Positionierung für absolute Positionierung der Buttons */
+}
+
+.edit-button,
+.delete-button {
+    position: absolute; /* Absolute Positionierung verwenden */
+    bottom: 10px; /* Abstand vom unteren Rand */
+}
+
+.edit-button {
+    background-color: #009970;
+    margin-right: 2px; /* Abstand zwischen dem Bearbeiten-Button und dem Löschen-Button */
+}
+
+.delete-button {
+    background-color: #cf5c5c; /* Ändern Sie die Hintergrundfarbe entsprechend Ihren Anforderungen */
+    right: 10px; /* Rechtsbündig positionieren */
+    margin-left: 5px; /* Abstand zwischen dem Löschen-Button und dem Bearbeiten-Button */
+}
