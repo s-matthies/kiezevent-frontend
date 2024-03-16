@@ -10,9 +10,9 @@
             <button class="btn btn-primary btn-sm m-1 edit-button" (click)="openUpdateEvent(event)" aria-label="Event bearbeiten">                
                 Bearbeiten <i class="bi bi-pencil-square"></i>
             </button>   
-            <button class="btn btn-danger btn-sm m-1 delete-button" (click)="deleteEvent(event)" aria-label="Event löschen">
+            <button class="btn btn-danger btn-sm m-1 delete-button" (click)="event.id !== undefined && openConfirmDeleteModal(confirmDeleteModal, event) " aria-label="Event löschen">
                 Löschen <i class="bi bi-trash"></i> 
-            </button>         
+            </button>     
           </div>
         </div>
       </div>
@@ -40,3 +40,20 @@
         </nav>
     </div>
 </div>
+
+<!-- Löschen Bestätigungsmodal -->
+<ng-template #confirmDeleteModal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Veranstaltung löschen</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    Sind Sie sicher, dass Sie diese Veranstaltung löschen möchten?
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Close click')">Abbrechen</button>
+    <button type="button" class="btn btn-danger" (click)="confirmDelete(); modal.close('Close click')">Löschen</button>
+  </div>
+</ng-template>

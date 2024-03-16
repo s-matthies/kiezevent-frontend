@@ -2,32 +2,33 @@ import { Component, OnInit, inject } from '@angular/core';
 import { BackendService } from '../shared/backend.service';
 import { Event } from '../shared/event';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({
-  selector: 'app-eventlist',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './eventlist.component.html',
-  styleUrl: './eventlist.component.css'
+    selector: 'app-eventlist',
+    standalone: true,
+    templateUrl: './eventlist.component.html',
+    styleUrl: './eventlist.component.css',
+    imports: [CommonModule]
 })
 export class EventlistComponent implements OnInit{
-
  // Oninit -> Lifecycle-Hook, der beim Initialisieren der Komponente aufgerufen wird
 
-  events: Event[] = []; // Array für die Events
   bs = inject (BackendService); // BackendService per Dependency Injection einbinden
   // andere Möglichkeit: constructor(private bs : BackendService) { }
-  
-  constructor(private router: Router) { }
-
+  private modalService = inject(NgbModal); 
+  private route = inject(ActivatedRoute) 
+  private router = inject(Router); 
+ 
+  events: Event[] = []; // Array für die Events
   pages: number[] = []; // Array für die Seitenzahlen
   totalPages: number = 0;; // Gesamtanzahl der Seiten
-
   pagedEvents: Event[] = []; // Array für die Events auf der aktuellen Seite
   currentPage = 1; // Aktuelle Seite
   pageSize = 9; // Anzahl der Events pro Seite
+  selectedEvent?: Event; 
  
   ngOnInit(): void {
     this.readAllEvents(); // beim Initialisieren der Komponente alle Events auslesen
@@ -73,12 +74,34 @@ export class EventlistComponent implements OnInit{
   }
 
   openUpdateEvent(event: Event): void {
-    // Hier navigieren Sie zur Update-Event-Komponente und übergeben das Event-Objekt
-    this.router.navigate(['/update', event.id]); // Annahme, dass Event eine Eigenschaft "id" hat
+    // Hier navigieren ich zur Update-Event-Komponente und übergebe das Event-Objekt
+    this.router.navigate(['/update', event.id]); 
   }
 
-  deleteEvent(_t5: Event) {
-    throw new Error('Method not implemented.');
+  // Methode zum Löschen eines Events
+  
+  deleteEvent(id: number): void {
+    console.log('id', id);
+    this.bs.deleteEvent(id).subscribe({
+      next: (response) => {
+        console.log('Event erfolgreich gelöscht: ', response);
+        this.readAllEvents(); // Liste der Events aktualisieren
+      },
+      error: (err) => console.log('Fehler beim Löschen des Events: ', err),
+      complete: () => console.log('deleteEvent() completed')
+    });
+    }
+
+
+    openConfirmDeleteModal(content: any, event: Event): void {
+      this.selectedEvent = event;
+      this.modalService.open(content, { centered: true });
+    }
+
+    confirmDelete(): void {
+      if (this.selectedEvent?.id) {
+        this.deleteEvent(this.selectedEvent.id);
+      }
     }
 }
 
