@@ -2,22 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 
-.container {
-  margin-top: 20px;
-    margin-bottom: 20px;
-    padding: 20px;
-    
-    /*
-    border: 1px solid #fbf0d0;
-    border-radius: 5px;
-    background-color: #fbdffc;
-    */
-     
-}
 
-h1 {
-    margin-bottom: 20px;
-}
 
 .description-container {
   position: relative;
