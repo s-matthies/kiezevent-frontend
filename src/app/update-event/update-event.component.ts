@@ -29,8 +29,8 @@ export class UpdateEventComponent implements OnInit{
 
   private modalService = inject(NgbModal); 
   private bs = inject(BackendService) 
-  private route = inject(ActivatedRoute)
-  private router = inject(Router);
+  private route = inject(ActivatedRoute) 
+  private router = inject(Router); 
 
   ngOnInit(): void {
     const idParam = this.route.snapshot.paramMap.get('id');
@@ -64,7 +64,7 @@ export class UpdateEventComponent implements OnInit{
     return this.titleFC.valid && this.dateFC.valid && this.locationFC.valid && this.starttimeFC.valid && this.endtimeFC.valid && this.descriptionFC.valid && this.linkFC.valid;
   }
 
-  updateEvent(content: TemplateRef<any>) {
+  updateEvent(content: TemplateRef<any>) { 
 
     if(this.formValid())
     {
@@ -87,6 +87,7 @@ export class UpdateEventComponent implements OnInit{
           complete: () => console.log('update completed')
       });
 
+      // Modal-Dialog
       this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result
       .then(
         (result) => {
