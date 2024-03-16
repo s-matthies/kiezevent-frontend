@@ -25,7 +25,7 @@ export class UpdateEventComponent implements OnInit{
   endtimeFC = new FormControl({ hours: 0, minutes: 0 } as Time, [Validators.required]);
   locationFC = new FormControl('', [Validators.required]);
   descriptionFC = new FormControl('', [Validators.required]);
-  linkFC = new FormControl('', [Validators.required]); 
+  linkFC = new FormControl('',[Validators.pattern('^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,})([\/\w \.-]*)*\/?$')]);
 
   private modalService = inject(NgbModal); 
   private bs = inject(BackendService) 
@@ -58,6 +58,7 @@ export class UpdateEventComponent implements OnInit{
       complete: () => console.log('readOne() completed')
     });
   }
+
 
   private formValid() {
     return this.titleFC.valid && this.dateFC.valid && this.locationFC.valid && this.starttimeFC.valid && this.endtimeFC.valid && this.descriptionFC.valid && this.linkFC.valid;
@@ -118,12 +119,6 @@ export class UpdateEventComponent implements OnInit{
     default:
       return `with: ${reason}`;
   }
-}
-
-// Methode zum Konvertieren einer Zeichenfolge in "Time"
-convertToTime(timeString: string): Time {
-  const [hours, minutes] = timeString.split(':').map(part => parseInt(part));
-  return { hours: hours, minutes: minutes };
 }
 
 }

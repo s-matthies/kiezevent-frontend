@@ -3,7 +3,7 @@
     <h1 class="my-4">Veranstaltung aktualisieren</h1>
   
     <div class="row mb-3">
-      <div class="col">
+      <div class="col-lg-6 mb-3">
         <div class="form-floating">
           <input type="text" class="form-control" id="idFirstname" placeholder="Titel der Veranstaltung" [formControl]="titleFC"
             [class]="titleFC.touched ? titleFC.valid ? 'is-valid' : 'is-invalid' : ''">
@@ -13,7 +13,7 @@
           </div>
         </div>
       </div>
-      <div class="col">
+      <div class="col-lg-6 mb-3">
         <div class="form-floating">
           <input type="date" class="form-control" id="idLastname" placeholder="Datum der Veranstaltung " [formControl]="dateFC"
             [class]="dateFC.touched ? dateFC.valid ? 'is-valid' : 'is-invalid' : ''">
@@ -26,7 +26,7 @@
     </div>
 
     <div class="row mb-3">
-      <div class="col">
+      <div class="col-lg-6 mb-3">
         <div class="form-floating">
           <input type="time" class="form-control" id="starttime" placeholder="Beginn der Veranstaltung" [formControl]="starttimeFC"
             [class]="starttimeFC.touched ? starttimeFC.valid ? 'is-valid' : 'is-invalid' : ''">
@@ -36,7 +36,7 @@
           </div>
         </div>
       </div>
-      <div class="col">
+      <div class="col-lg-6 mb-3">
         <div class="form-floating">
           <input type="time" class="form-control" id="endtime" placeholder="Ende der Veranstaltung" [formControl]="endtimeFC"
             [class]="endtimeFC.touched ? endtimeFC.valid ? 'is-valid' : 'is-invalid' : ''">
@@ -49,7 +49,7 @@
     </div>
 
     <div class="row mb-3">
-      <div class="col">
+      <div class="col-lg-6 mb-3">
         <div class="form-floating">
           <input type="text" class="form-control" id="location" placeholder="Ort der Veranstaltung" [formControl]="locationFC"
             [class]="locationFC.touched ? locationFC.valid ? 'is-valid' : 'is-invalid' : ''">
@@ -59,13 +59,13 @@
           </div>
         </div>
       </div>
-      <div class="col">
+      <div class="col-lg-6 mb-3">
         <div class="form-floating">
           <input type="text" class="form-control" id="link" placeholder="Link zur Veranstaltung" [formControl]="linkFC"
             [class]="linkFC.touched ? linkFC.valid ? 'is-valid' : 'is-invalid' : ''">
-          <label for="link">Link</label>
-          <div class="invalid-feedback">
-            Bitte geben Sie einen Link zur Veranstaltungsort ein (optional).
+          <label for="link">Link (optional)</label>
+          <div *ngIf="linkFC.invalid && (linkFC.dirty || linkFC.touched)" class="invalid-feedback">
+            Bitte geben Sie einen gültigen Link zur Veranstaltung ein (optional).
           </div>
         </div>
       </div>
@@ -81,11 +81,11 @@
       </div>
     </div>
 
-    <div class="row">
-      <div class="col">
+    <div class="row mb-3">
+      <div class="col-lg-6">
         <button type="button" class="w-100 btn btn-success" (click)="updateEvent(content)">Update</button>
       </div>
-      <div class="col">
+      <div class="col-lg-6">
         <button type="button" class="w-100 btn btn-secondary" (click)="cancel()">Cancel</button>
       </div>
     </div>
