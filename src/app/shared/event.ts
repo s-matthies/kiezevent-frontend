@@ -8,5 +8,5 @@ export interface Event {
     endtime: Time;
     location: string;
     description: string;
-    link: string;
+    link: string | null;
 }
