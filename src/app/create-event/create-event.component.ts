@@ -12,8 +12,8 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './create-event.component.html',
   styleUrl: './create-event.component.css'
 })
-export class CreateEventComponent {
-
+export class CreateEventComponent implements OnInit{
+  
 
   // FormControl-Objekte für die Eingabefelder des Formulars
   titleFC = new FormControl('', [Validators.required]);
@@ -27,7 +27,9 @@ export class CreateEventComponent {
   bs = inject (BackendService); // BackendService per Dependency Injection einbinden
   private router = inject(Router); //
 
-
+  ngOnInit(): void {
+    this.cancel(); // beim Initialisieren des Formulars alle Eingabefelder zurücksetzen
+  }
 
   private formValid() {
     return this.titleFC.valid && this.descriptionFC.valid && this.dateFC.valid && this.starttimeFC.valid && this.endtimeFC.valid && this.locationFC.valid && this.linkFC.valid;
