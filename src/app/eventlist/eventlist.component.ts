@@ -2,6 +2,7 @@ import { Component, OnInit, inject } from '@angular/core';
 import { BackendService } from '../shared/backend.service';
 import { Event } from '../shared/event';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -11,11 +12,15 @@ import { CommonModule } from '@angular/common';
   templateUrl: './eventlist.component.html',
   styleUrl: './eventlist.component.css'
 })
-export class EventlistComponent implements OnInit{ // Oninit -> Lifecycle-Hook, der beim Initialisieren der Komponente aufgerufen wird
+export class EventlistComponent implements OnInit{
+
+ // Oninit -> Lifecycle-Hook, der beim Initialisieren der Komponente aufgerufen wird
 
   events: Event[] = []; // Array für die Events
   bs = inject (BackendService); // BackendService per Dependency Injection einbinden
   // andere Möglichkeit: constructor(private bs : BackendService) { }
+  
+  constructor(private router: Router) { }
 
   pages: number[] = []; // Array für die Seitenzahlen
   totalPages: number = 0;; // Gesamtanzahl der Seiten
@@ -66,6 +71,15 @@ export class EventlistComponent implements OnInit{ // Oninit -> Lifecycle-Hook, 
       this.updatePage();
     }
   }
+
+  openUpdateEvent(event: Event): void {
+    // Hier navigieren Sie zur Update-Event-Komponente und übergeben das Event-Objekt
+    this.router.navigate(['/update', event.id]); // Annahme, dass Event eine Eigenschaft "id" hat
+  }
+
+  deleteEvent(_t5: Event) {
+    throw new Error('Method not implemented.');
+    }
 }
 
         
