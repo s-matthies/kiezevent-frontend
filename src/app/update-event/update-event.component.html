@@ -81,15 +81,23 @@
       </div>
     </div>
 
-    <div class="row mb-3">
-      <div class="col-lg-6">
-        <button type="button" class="w-100 btn btn-success" (click)="updateEvent(content)">Aktualisieren</button>
+    <div class="mb-6"> 
+      <div class="row mb-3">
+        <div class="col-12 col-md-6 mb-3 mb-md-0">
+          <button type="button" class="w-100 btn btn-success" (click)="updateEvent(content)">Aktualisieren</button>
+        </div>
+        <div class="col-12 col-md-6">
+          <button type="button" class="w-100 btn btn-secondary" (click)="cancel()">Zurücksetzen</button>
+        </div>
       </div>
-      <div class="col-lg-6">
-        <button type="button" class="w-100 btn btn-secondary" (click)="cancel()">Zurücksetzen</button>
+      <div class="row mt-3">
+        <div class="col-12 text-end">
+          <a class="btn btn-link" [routerLink]="'/event'">Zurück zur Übersichtsliste</a>
+        </div>
       </div>
     </div>
   </div>
+
 
   <!-- Modal -->
     <ng-template #content let-modal>

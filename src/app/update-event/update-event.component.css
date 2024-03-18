@@ -3,7 +3,6 @@
 
 
 
-
 .description-container {
   position: relative;
 }
@@ -16,4 +15,8 @@
 .form-label {
   display: block;
   margin-bottom: 0.5rem;
+}
+
+.mb-6 {
+  margin-bottom: 6rem;
 }
