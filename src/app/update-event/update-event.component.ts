@@ -3,13 +3,13 @@ import { Component, OnInit, TemplateRef, inject } from '@angular/core';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ModalDismissReasons, NgbDatepickerModule, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { BackendService } from '../shared/backend.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Event } from '../shared/event';
 
 @Component({
   selector: 'app-edit-event',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, NgbDatepickerModule],
+  imports: [CommonModule, ReactiveFormsModule, NgbDatepickerModule, RouterLink],
   templateUrl: './update-event.component.html',
   styleUrl: './update-event.component.css'
 })
