@@ -64,7 +64,7 @@ export class UpdateEventComponent implements OnInit{
     return this.titleFC.valid && this.dateFC.valid && this.locationFC.valid && this.starttimeFC.valid && this.endtimeFC.valid && this.descriptionFC.valid && this.linkFC.valid;
   }
 
-  updateEvent(content: TemplateRef<any>) { 
+  updateEvent(content: TemplateRef<any>) { //
 
     if(this.formValid())
     {
@@ -73,10 +73,10 @@ export class UpdateEventComponent implements OnInit{
         title: this.titleFC.value!,
         date: this.dateFC.value!,
         location: this.locationFC.value!,
-        starttime: this.event.starttime!,
-        endtime: this.event.endtime!,
-        description: this.event.description!,
-        link: this.event.link!
+        starttime: this.starttimeFC.value!,
+        endtime: this.endtimeFC.value!,
+        description: this.descriptionFC.value!,
+        link: this.linkFC.value!
       }
 
       console.log('event: ', event) // for debugging
