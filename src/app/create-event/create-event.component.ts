@@ -1,10 +1,11 @@
 import { Component, OnInit, TemplateRef, inject } from '@angular/core';
-import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AbstractControl, AsyncValidatorFn, FormControl, FormGroup, ReactiveFormsModule, ValidationErrors, Validators } from '@angular/forms';
 import { BackendService } from '../shared/backend.service';
 import { CommonModule, Time } from '@angular/common';
 import { ModalDismissReasons, NgbDatepickerModule, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Event } from '../shared/event';
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-create-event',
@@ -13,8 +14,8 @@ import { Event } from '../shared/event';
   templateUrl: './create-event.component.html',
   styleUrl: './create-event.component.css'
 })
-export class CreateEventComponent {
-
+export class CreateEventComponent{
+  
   private modalService = inject(NgbModal);
   private bs = inject(BackendService);
   private router = inject(Router);
@@ -22,9 +23,10 @@ export class CreateEventComponent {
   closeResult = '';
 
   event!: Event; 
+ 
   
   titleFC = new FormControl('', [Validators.required]);
-  dateFC = new FormControl(null, [Validators.required]);
+  dateFC = new FormControl(null, [Validators.required], futureDateValidator());
   starttimeFC = new FormControl(null, [Validators.required]);
   endtimeFC = new FormControl(null, [Validators.required]);
   /*
@@ -37,6 +39,7 @@ export class CreateEventComponent {
   linkFC = new FormControl('',[Validators.pattern('^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,})([\/\w \.-]*)*\/?$')]);
   
 
+  //
   private formValid() {
     return this.titleFC.valid && this.descriptionFC.valid && this.dateFC.valid && this.starttimeFC.valid && this.endtimeFC.valid && this.locationFC.valid && this.linkFC.valid;
   }
@@ -63,6 +66,9 @@ export class CreateEventComponent {
         error: (err) => console.log(err),
         complete: () => console.log('register completed')
     });
+
+
+   
 
 
     // Modal öffnen
@@ -122,7 +128,10 @@ export class CreateEventComponent {
      }
   }
 
-
-
-  
-
+  // Validator für das Datum (darf nicht in der Vergangenheit liegen)
+  export function futureDateValidator(): AsyncValidatorFn {
+    return (control: AbstractControl): Observable<ValidationErrors | null> => {
+      const forbidden = new Date(control.value) < new Date();
+      return of(forbidden ? { 'pastDate': {value: control.value} } : null);
+    };
+  }
