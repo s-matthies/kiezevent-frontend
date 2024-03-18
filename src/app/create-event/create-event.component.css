@@ -1,4 +1,4 @@
-.create-button {
+ .create-button {
     background-color: #009970;
       color: #fff;
       font-size: 14px; /* Größe des Textes */
@@ -29,9 +29,13 @@
     transition: 0.3s background-color;
   }
 
-    .btn-primary:hover {
-        background-color: #00b383;
-    }   
+  .btn-primary:hover {
+      background-color: #00b383;
+  }   
+
+  .mb-6 {
+    margin-bottom: 6rem;
+}
 
    
     
