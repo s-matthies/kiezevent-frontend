@@ -19,7 +19,6 @@ export class CreateEventComponent{
   private modalService = inject(NgbModal);
   private bs = inject(BackendService);
   private router = inject(Router);
-  private route = inject(ActivatedRoute) 
   closeResult = '';
 
   event!: Event; 
@@ -29,11 +28,6 @@ export class CreateEventComponent{
   dateFC = new FormControl(null, [Validators.required], futureDateValidator());
   starttimeFC = new FormControl(null, [Validators.required]);
   endtimeFC = new FormControl(null, [Validators.required]);
-  /*
-  dateFC = new FormControl(new Date(), [Validators.required]);
-  starttimeFC = new FormControl({ hours: 0, minutes: 0 } as Time, [Validators.required]); // Anfangswerte für starttime und endtime festlegen
-  endtimeFC = new FormControl({ hours: 0, minutes: 0 } as Time, [Validators.required]);
-  */
   locationFC = new FormControl('', [Validators.required]);
   descriptionFC = new FormControl('', [Validators.required]);
   linkFC = new FormControl('',[Validators.pattern('^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,})([\/\w \.-]*)*\/?$')]);
