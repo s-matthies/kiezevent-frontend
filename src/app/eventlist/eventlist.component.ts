@@ -2,8 +2,9 @@ import { Component, OnInit, inject } from '@angular/core';
 import { BackendService } from '../shared/backend.service';
 import { Event } from '../shared/event';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
 
 
 @Component({
@@ -11,8 +12,9 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
     standalone: true,
     templateUrl: './eventlist.component.html',
     styleUrl: './eventlist.component.css',
-    imports: [CommonModule]
+    imports: [CommonModule, FormsModule, RouterModule]
 })
+
 export class EventlistComponent implements OnInit{
  // Oninit -> Lifecycle-Hook, der beim Initialisieren der Komponente aufgerufen wird
 
@@ -21,13 +23,14 @@ export class EventlistComponent implements OnInit{
   private route = inject(ActivatedRoute) 
   private router = inject(Router); 
  
-  events: Event[] = []; // Array für die Events
+  events: Event[] = []; 
   pages: number[] = []; // Array für die Seitenzahlen
-  totalPages: number = 0;; // Gesamtanzahl der Seiten
+  totalPages: number = 0;
   pagedEvents: Event[] = []; // Array für die Events auf der aktuellen Seite
-  currentPage = 1; // Aktuelle Seite
+  currentPage = 1; 
   pageSize = 9; // Anzahl der Events pro Seite
   selectedEvent?: Event; 
+  searchTerm: string = ''; // Der Suchbegriff, der vom Benutzer eingegeben wird
  
   ngOnInit(): void {
     this.readAllEvents(); // beim Initialisieren der Komponente alle Events auslesen
@@ -106,6 +109,21 @@ export class EventlistComponent implements OnInit{
       this.deleteEvent(this.selectedEvent.id);
     }
   }
+
+
+  filterEventsByTitle(): void {
+    if (!this.searchTerm) {
+      this.pagedEvents = this.events; // Wenn kein Suchbegriff eingegeben wurde, zeige alle Veranstaltungen
+    } else {
+      this.pagedEvents = this.events.filter(event => event.title.toLowerCase().includes(this.searchTerm.toLowerCase()));
+    }
+  }
+
+
+  goToDetail(eventId: number) {
+    this.router.navigate(['/detail', eventId]);
+  }
+
 }
 
         
