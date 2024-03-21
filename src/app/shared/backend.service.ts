@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class BackendService {
 
-  backendUrl = "http://localhost:4000"; // Basis-URL für die REST-Schnittstelle
+  backendUrl = "https://kiezevent-backend.onrender.com"; // Basis-URL für die REST-Schnittstelle
 
   constructor(private http: HttpClient) { } // einbinden HttpClient per Dependency Injection
 
