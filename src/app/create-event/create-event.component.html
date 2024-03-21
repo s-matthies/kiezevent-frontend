@@ -1,8 +1,10 @@
 <form>
-    <div class="container mt-5">
+    <div class="header-background">
         <h1 class="my-4">Veranstaltung hinzufügen</h1>
+    </div>
+    <div class="container mt-5">
         
-        <div class="row mb-3">
+        <div class="row mb-2">
             <div class="col-md-6">
                 <div class="form-floating">
                     <input type="text" class="form-control" id="idFirstname" placeholder="Titel der Veranstaltung" [formControl]="titleFC"
@@ -25,7 +27,7 @@
             </div>
         </div>
 
-        <div class="row mb-3">
+        <div class="row mb-2">
             <div class="col-md-6">
                 <div class="form-floating">
                     <input type="time" class="form-control" id="starttime" placeholder="Beginn der Veranstaltung" [formControl]="starttimeFC"
@@ -48,7 +50,7 @@
             </div>
         </div>
 
-        <div class="row mb-3">
+        <div class="row mb-2"> 
             <div class="col-md-6">
                 <div class="form-floating">
                     <input type="text" class="form-control" id="location" placeholder="Ort der Veranstaltung" [formControl]="locationFC"
