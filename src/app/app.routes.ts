@@ -10,6 +10,7 @@ export const routes: Routes = [
     { path: "event", component: EventlistComponent },
     { path: "create", component: CreateEventComponent },
     { path: "update/:id", component: UpdateEventComponent},
+    { path: "detail/:id", component: EventdetailComponent},
     { path: "", component: HomeComponent, pathMatch: 'full'} // default route bedeutet das, wenn keine Route angegeben ist, dann wird HomeComponent geladen
     // pathMatch: 'full' bedeutet, dass die Route nur dann geladen wird, wenn der Pfad exakt übereinstimmt
 ];
