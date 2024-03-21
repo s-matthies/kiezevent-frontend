@@ -1,17 +1,16 @@
-.navbar {
+  .navbar {
     padding: 1rem 0;
     background-color: #e0f0f0;
     /* Farbverlauf*/
     /*background-image: linear-gradient(90deg, #009970 0%, #e0f0f0 100%);*/
     background-image: linear-gradient(50deg, #8812bb 0%, #f53189 100%);
-  
     box-shadow: 0 2px 4px 0 rgba(0,0,0,.1);
   }
   
-.offcanvas-title {
+  .offcanvas-title {
     font-size: 24px; /* Größe des Textes */
-    font-weight: 500;
-    color: #009970; 
+    font-weight: 900;
+    color: #8812bb
   }
 
   .navbar-brand {
@@ -24,7 +23,7 @@
   }
   
   .login-button {
-    background-color: #009970;
+      background-color: #009970;
       color: #fff;
       font-size: 14px; /* Größe des Textes */
       padding: 8px 20px;
@@ -48,11 +47,11 @@
   }
   
   .nav-link {
-    color: #f8f8f8;  /* #666777; */
+    color: #f8f8f8; 
     font-weight: 500;
     position: relative;
   }
-  
+
  
   .nav-link:hover, .nav-link.active {
     color: #000;
@@ -78,5 +77,13 @@
       visibility: visible;
       }
   }
+
+  @media (max-width: 992px) { /* 992px ist der Breakpoint für große Bildschirme in Bootstrap */
+    
+
+    .nav-link {
+        color: #f53189; /* Ersetzen Sie #yourColor durch die gewünschte Farbe */
+    }
+}
 
   
