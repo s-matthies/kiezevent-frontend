@@ -106,5 +106,13 @@ h1 {
 
 .card-text {
     margin-top: 20px; 
-    }
- 
+}
+
+.long-input {
+    width: 150%; 
+    align-self: flex-start;
+}
+
+.filter-position {
+    margin-left: 15px; /* Fügt einen linken Rand von 15px hinzu */
+}
