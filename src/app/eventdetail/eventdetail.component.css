@@ -1,0 +1,57 @@
+@import url('../../../node_modules/bootstrap-icons/font/bootstrap-icons.css');
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+
+h1 {
+    font-size: 3rem; 
+    color: #f53189;
+    text-shadow: 1px 1px 2px #000000; 
+    font-weight: bold;
+    padding: 10px; 
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+  }
+
+.header-background {
+    background-color: #f9e424; 
+    width: 100%; 
+    height: 150px;
+    display: flex; /* Flexbox-Layout*/
+    justify-content: center; /* Horizontale Ausrichtung in der Mitte */
+    align-items: center; /* Vertikale Ausrichtung in der Mitte */
+  }
+
+.center {
+    text-align: center;
+    padding: 0 250px; 
+    margin-top: 20px;
+  }
+
+.date {
+    margin-top: 50px;
+  }
+
+
+.btn-danger {
+    background-color: #f53189;
+    border-color: #f53189;
+  }
+
+.btn-danger:hover {
+    background-color: #f53189;
+    border-color: #f53189;
+  }
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+  }
+
+  
+
+  

@@ -1,1 +1,43 @@
-<p>eventdetail works!</p>
+<div *ngIf="event">
+    <div class="header-background">
+        <h1>{{ event.title }}</h1>
+    </div>
+    <p class="date center">Datum: {{ event.date | date:'dd.MM.yyyy' }}</p>
+    <p class="center">Uhrzeit: {{ event.starttime }} - {{ event.endtime }}</p>
+    <p class="center">Ort: {{ event.location }}</p>
+    <p class="center">{{ event.description }}</p>
+    <p class="center" *ngIf="event.link">Weitere Infos: <a [href]="event.link">{{ event.link }}</a></p>
+
+
+    <!-- Bearbeiten und Löschen Button -->
+    <div class="button-container">
+        <button class="btn btn-primary btn-sm m-1 edit-button" (click)="openUpdateEvent(event)" aria-label="Event bearbeiten">                
+            Bearbeiten <i class="bi bi-pencil-square"></i>
+        </button>   
+        <button class="btn btn-danger btn-sm m-1 delete-button" (click)="event.id !== undefined && openConfirmDeleteModal(confirmDeleteModal, event)" aria-label="Event löschen">
+            Löschen <i class="bi bi-trash"></i> 
+        </button> 
+        <button class="btn btn-secondary btn-sm m-1" (click)="navigateToOverview()" aria-label="Zur Übersicht">
+            Zur Übersicht <i class="bi bi-arrow-left"></i>
+        </button>
+    </div>
+</div>
+
+<!-- Löschen Bestätigungsmodal -->
+<ng-template #confirmDeleteModal let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Veranstaltung löschen</h4>
+        <button type="button" class="close close-button" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <div class="modal-body">
+        Sind Sie sicher, dass Sie diese Veranstaltung löschen möchten?
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Close click')">Abbrechen</button>
+        <button type="button" class="btn btn-danger" (click)="confirmDelete(); modal.close('Close click')">Löschen</button>
+    </div>
+</ng-template>
