@@ -20,3 +20,19 @@
 .mb-6 {
   margin-bottom: 6rem;
 }
+
+.btn-success {
+  background-color: #8812bb;
+}
+
+.btn-success:hover {
+  background-color: #bd42f2;
+}
+
+.btn-secondary {
+  background-color: #8c8e8e;
+}
+
+.btn-secondary:hover {
+  background-color: #b1b3b3;
+}

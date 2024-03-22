@@ -64,8 +64,7 @@ export class UpdateEventComponent implements OnInit{
     return this.titleFC.valid && this.dateFC.valid && this.locationFC.valid && this.starttimeFC.valid && this.endtimeFC.valid && this.descriptionFC.valid && this.linkFC.valid;
   }
 
-  updateEvent(content: TemplateRef<any>) { //
-
+  updateEvent(content: TemplateRef<any>) { 
     if(this.formValid())
     {
       let event = {
