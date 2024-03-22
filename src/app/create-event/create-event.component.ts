@@ -1,9 +1,9 @@
-import { Component, OnInit, TemplateRef, inject } from '@angular/core';
-import { AbstractControl, AsyncValidatorFn, FormControl, FormGroup, ReactiveFormsModule, ValidationErrors, Validators } from '@angular/forms';
+import { Component, TemplateRef, inject } from '@angular/core';
+import { AbstractControl, AsyncValidatorFn, FormControl, FormGroup, ReactiveFormsModule, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { BackendService } from '../shared/backend.service';
-import { CommonModule, Time } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { ModalDismissReasons, NgbDatepickerModule, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Event } from '../shared/event';
 import { Observable, of } from 'rxjs';
 
@@ -20,7 +20,6 @@ export class CreateEventComponent{
   private bs = inject(BackendService);
   private router = inject(Router);
   closeResult = '';
-
   event!: Event; 
  
   
@@ -30,7 +29,8 @@ export class CreateEventComponent{
   endtimeFC = new FormControl(null, [Validators.required]);
   locationFC = new FormControl('', [Validators.required]);
   descriptionFC = new FormControl('', [Validators.required]);
-  linkFC = new FormControl('',[Validators.pattern('^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,})([\/\w \.-]*)*\/?$')]);
+  linkFC = new FormControl('', urlValidator());
+
   
 
   //
@@ -70,7 +70,7 @@ export class CreateEventComponent{
       .then(
         (result) => {
           this.closeResult = `Closed with: ${result}`;
-          this.router.navigate(['/members']);
+          this.router.navigate(['/event']);
         },
         (reason) => {
           this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
@@ -120,6 +120,8 @@ export class CreateEventComponent{
     cancel() {
       this.router.navigate(['/event']); // zurück zur EventList-Komponente navigieren
      }
+
+     
   }
 
   // Validator für das Datum (darf nicht in der Vergangenheit liegen)
@@ -127,5 +129,17 @@ export class CreateEventComponent{
     return (control: AbstractControl): Observable<ValidationErrors | null> => {
       const forbidden = new Date(control.value) < new Date();
       return of(forbidden ? { 'pastDate': {value: control.value} } : null);
+    };
+  }
+  // Validator für den Link (muss ein gültiger URL sein, wenn vorhanden)
+  export function urlValidator(): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null => {
+      const value = control.value;
+      if (!value) { // wenn kein Wert vorhanden ist, ist die Validierung erfolgreich
+        return null;
+      }
+      // Überprüfen Sie, ob der Wert ein gültiger URL ist
+      const isValidUrl = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/.test(value);
+      return isValidUrl ? null : { 'invalidUrl': {value: control.value} };
     };
   }
