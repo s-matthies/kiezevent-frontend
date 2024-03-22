@@ -27,7 +27,7 @@ h1 {
 
 .center {
     text-align: center;
-    padding: 0 250px; 
+    padding: 0 350px; 
     margin-top: 20px;
   }
 
@@ -53,5 +53,10 @@ h1 {
   }
 
   
+  .time-block {
+    /* Ihre Formatierungsstile hier */
+    padding: 10px;
+    font-weight: bold;
+}
 
   
