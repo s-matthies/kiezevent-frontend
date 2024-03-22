@@ -46,9 +46,8 @@ export class EventdetailComponent implements OnInit{
     this.bs.deleteEvent(id).subscribe({
       next: (response) => {
         console.log('Event erfolgreich gelöscht: ', response);
-        // TODO: Event-Liste aktualsieren !!
-        // TODO: Event-Liste aktualsieren !!
-        // TODO: Event-Liste aktualsieren !!
+        // Navigieren zur Event-List-Komponente
+        this.router.navigate(['/event']);
       },
       error: (err) => console.log('Fehler beim Löschen des Events: ', err),
       complete: () => console.log('deleteEvent() completed')
