@@ -8,7 +8,7 @@
             <div class="col-md-6">
                 <div class="form-floating">
                     <input type="text" class="form-control" id="idFirstname" placeholder="Titel der Veranstaltung" [formControl]="titleFC"
-                        [class]="titleFC.valid ? 'is-valid' : 'is-invalid'">
+                    [class]="submitClicked && (titleFC.valid ? 'is-valid' : 'is-invalid')">
                     <label for="idFirstname">Veranstaltungsname</label>
                     <div class="invalid-feedback">
                         Bitte geben Sie den Titel der Veranstaltung ein.
@@ -18,7 +18,7 @@
             <div class="col-md-6">
                 <div class="form-floating">
                     <input type="date" class="form-control" id="idLastname" placeholder="Datum der Veranstaltung " [formControl]="dateFC"
-                        [class]="dateFC.valid ? 'is-valid' : 'is-invalid'">
+                        [class]="submitClicked && (dateFC.valid ? 'is-valid' : 'is-invalid')">
                     <label for="idLastname">Datum</label>
                     <div class="invalid-feedback">
                         Bitte geben Sie das Datum der Veranstaltung ein.
@@ -31,7 +31,7 @@
             <div class="col-md-6">
                 <div class="form-floating">
                     <input type="time" class="form-control" id="starttime" placeholder="Beginn der Veranstaltung" [formControl]="starttimeFC"
-                        [class]="starttimeFC.valid ? 'is-valid' : 'is-invalid'">
+                        [class]="submitClicked && (starttimeFC.valid ? 'is-valid' : 'is-invalid')">
                     <label for="starttime">Beginn</label>
                     <div class="invalid-feedback">
                         Bitte geben Sie den Beginn der Veranstaltung ein.
@@ -41,7 +41,7 @@
             <div class="col-md-6">
                 <div class="form-floating">
                     <input type="time" class="form-control" id="endtime" placeholder="Ende der Veranstaltung" [formControl]="endtimeFC"
-                        [class]="endtimeFC.valid ? 'is-valid' : 'is-invalid'">
+                        [class]="submitClicked && (endtimeFC.valid ? 'is-valid' : 'is-invalid')">
                     <label for="endtime">Ende</label>
                     <div class="invalid-feedback">
                         Bitte geben Sie das Ende der Veranstaltung ein.
@@ -54,7 +54,7 @@
             <div class="col-md-6">
                 <div class="form-floating">
                     <input type="text" class="form-control" id="location" placeholder="Ort der Veranstaltung" [formControl]="locationFC"
-                        [class]="locationFC.valid ? 'is-valid' : 'is-invalid'">
+                        [class]="submitClicked && (locationFC.valid ? 'is-valid' : 'is-invalid')">
                     <label for="location">Ort</label>
                     <div class="invalid-feedback">
                         Bitte geben Sie eine Veranstaltungsort ein.
@@ -64,7 +64,7 @@
             <div class="col-md-6">
                 <div class="form-floating">
                     <input type="text" class="form-control" id="link" placeholder="Link zur Veranstaltung" [formControl]="linkFC"
-                        [class]="linkFC.valid ? 'is-valid' : 'is-invalid'">
+                        [class]="submitClicked && (linkFC.valid ? 'is-valid' : 'is-invalid')">
                     <label for="link">Link (optional)</label>
                     <div *ngIf="linkFC.invalid && (linkFC.dirty || linkFC.touched)" class="invalid-feedback">
                         Bitte geben Sie einen gültigen Link zur Veranstaltung ein (optional).
@@ -77,14 +77,16 @@
             <div class="col-md-12">
                 <div class="form-floating">
                     <textarea class="form-control" id="description" placeholder="Beschreibung der Veranstaltung" [formControl]="descriptionFC"
-                        [class]="descriptionFC.valid ? 'is-valid' : 'is-invalid'"></textarea>
+                        [class]="submitClicked && (descriptionFC.valid ? 'is-valid' : 'is-invalid')"> </textarea>
                     <label for="description">Beschreibung</label>
-                </div>
                 <div class="invalid-feedback">
                     Bitte geben Sie eine kurze Beschreibung der Veranstaltung ein.
                 </div>
             </div>
         </div>
+        </div>
+        
+
         
         <!-- Buttons -->
         <div class="mb-6"> 

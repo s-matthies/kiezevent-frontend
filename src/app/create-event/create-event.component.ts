@@ -21,7 +21,7 @@ export class CreateEventComponent{
   private router = inject(Router);
   closeResult = '';
   event!: Event; 
- 
+  submitClicked = false; // Diese Variable wird auf true gesetzt, wenn der "Hinzufügen"-Button geklickt wird
   
   titleFC = new FormControl('', [Validators.required]);
   dateFC = new FormControl(null, [Validators.required], futureDateValidator());
@@ -41,6 +41,8 @@ export class CreateEventComponent{
 
   // Methode zum Erstellen eines neuen Events
   createEvent(content: TemplateRef<any>) {
+    this.submitClicked = true;
+
     if(this.formValid())
     {
       let event = {
