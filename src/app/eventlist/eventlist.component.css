@@ -62,9 +62,10 @@ h1 {
 .card-title {
     margin-bottom: 10px; /* Abstand zwischen dem Titel und dem Untertitel hinzufügen */
     font-weight: bold; 
-    color: #f53189;
+    color: #8812bb;
     font-size: 1.5rem; 
     padding: 10px; 
+    font-family: 'Roboto', sans-serif;
 }
 
 .card-subtitle {
@@ -117,4 +118,8 @@ h1 {
 
 .filter-position {
     margin-left: 15px; /* Fügt einen linken Rand von 15px hinzu */
+}
+
+.main-background {
+    background-color: rgb(251, 251, 251); 
 }
