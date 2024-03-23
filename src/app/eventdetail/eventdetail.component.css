@@ -23,18 +23,18 @@ h1 {
     display: flex; /* Flexbox-Layout*/
     justify-content: center; /* Horizontale Ausrichtung in der Mitte */
     align-items: center; /* Vertikale Ausrichtung in der Mitte */
+    margin-bottom: 50px;
   }
 
 .center {
     text-align: center;
     padding: 0 350px; 
-    margin-top: 20px;
+    margin-top: 10px;
   }
 
 .date {
     margin-top: 50px;
   }
-
 
 .btn-danger {
     background-color: #f53189;
@@ -55,8 +55,8 @@ h1 {
   
   .time-block {
     /* Ihre Formatierungsstile hier */
-    padding: 10px;
     font-weight: bold;
+    margin-bottom: 30px;
 }
 
   
