@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -10,5 +10,17 @@ import { RouterLink } from '@angular/router';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
+
+  @HostListener('window:scroll', ['$event'])
+onWindowScroll() {
+  let element = document.querySelector('.navbar');
+  if (element) {
+    if (window.pageYOffset > element.clientHeight) {
+      element.classList.add('navbar-shrink');
+    } else {
+      element.classList.remove('navbar-shrink');
+    }
+  }
+}
 
 }

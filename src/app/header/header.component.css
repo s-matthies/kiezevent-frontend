@@ -1,8 +1,9 @@
   .navbar {
-    padding: 1rem 0;
+    padding: 2rem 0;
     background-color: #e0f0f0;
     /* Farbverlauf*/
     /*background-image: linear-gradient(90deg, #009970 0%, #e0f0f0 100%);*/
+    /*background-image: linear-gradient(50deg, #129fbb 0%, #3cf8bc 100%);*/
     background-image: linear-gradient(50deg, #8812bb 0%, #f53189 100%);
     box-shadow: 0 2px 4px 0 rgba(0,0,0,.1);
   }
@@ -10,7 +11,11 @@
   .offcanvas-title {
     font-size: 24px; /* Größe des Textes */
     font-weight: 900;
-    color: #8812bb
+    color: #f8f8f8;
+  }
+
+  .offcanvas-header {
+    background-image: linear-gradient(50deg, #8812bb 0%, #f53189 100%);
   }
 
   .navbar-brand {
@@ -52,10 +57,14 @@
     position: relative;
   }
 
- 
   .nav-link:hover, .nav-link.active {
     color: #000;
   }
+
+  .navbar-shrink {
+    padding: 10px 0; /* Ändern Sie diese Werte entsprechend */
+  }
+
   
   @media (min-width: 992px) { 
 
