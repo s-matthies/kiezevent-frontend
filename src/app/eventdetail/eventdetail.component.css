@@ -14,6 +14,7 @@ h1 {
     padding: 10px; 
     text-align: center;
     font-family: 'Roboto', sans-serif;
+    margin-top: 30px;
   }
 
 .header-background {
@@ -50,18 +51,30 @@ h1 {
     background-color: #8812bb;
   }
 
-
 .button-container {
     display: flex;
     justify-content: center;
     margin-top: 50px;
   }
-
   
-  .time-block {
+.time-block {
     /* Ihre Formatierungsstile hier */
     font-weight: bold;
     margin-bottom: 30px;
+}
+
+@media screen and (max-width: 992px) {
+  .center {
+      padding: 0 20px; /* Reduziere den Seitenabstand für kleinere Bildschirme */
+  }
+
+  .header-background {
+      height: 100px; /* Ändere die Höhe des Header-Hintergrunds für kleinere Bildschirme */
+  }
+  
+  .header-background h1 {
+    font-size: 2em; /* Ändere die Schriftgröße der Überschrift für kleinere Bildschirme */
+}
 }
 
   
