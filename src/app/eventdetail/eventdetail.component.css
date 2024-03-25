@@ -46,6 +46,11 @@ h1 {
     border-color: #f53189;
   }
 
+.btn-primary {
+    background-color: #8812bb;
+  }
+
+
 .button-container {
     display: flex;
     justify-content: center;
