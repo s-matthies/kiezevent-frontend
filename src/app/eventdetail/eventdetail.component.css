@@ -1,82 +1,86 @@
 @import url('../../../node_modules/bootstrap-icons/font/bootstrap-icons.css');
 
 .close-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-  }
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
 
 h1 {
-    font-size: 3rem; 
-    color: #f53189;
-    text-shadow: 1px 1px 2px #000000; 
-    font-weight: bold;
-    padding: 10px; 
-    text-align: center;
-    font-family: 'Roboto', sans-serif;
-    margin-top: 40px;
-  }
+  font-size: 3rem;
+  color: #f53189;
+  text-shadow: 1px 1px 2px #000000;
+  font-weight: bold;
+  padding: 10px;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  margin-top: 40px;
+}
 
 .header-background {
-    background-color: #f9e424; 
-    width: 100%; 
-    height: 150px;
-    display: flex; /* Flexbox-Layout*/
-    justify-content: center; /* Horizontale Ausrichtung in der Mitte */
-    align-items: center; /* Vertikale Ausrichtung in der Mitte */
-    margin-bottom: 50px;
-  }
+  background-color: #f9e424;
+  width: 100%;
+  height: 150px;
+  display: flex;
+  /* Flexbox-Layout*/
+  justify-content: center;
+  /* Horizontale Ausrichtung in der Mitte */
+  align-items: center;
+  /* Vertikale Ausrichtung in der Mitte */
+  margin-bottom: 50px;
+}
 
 .center {
-    text-align: center;
-    padding: 0 350px; 
-    margin-top: 10px;
-  }
+  text-align: center;
+  padding: 0 350px;
+  margin-top: 10px;
+}
 
 .date {
-    margin-top: 50px;
-  }
+  margin-top: 50px;
+}
 
 .btn-danger {
-    background-color: #f53189;
-    border-color: #f53189;
-  }
+  background-color: #f53189;
+  border-color: #f53189;
+}
 
 .btn-danger:hover {
-    background-color: #f53189;
-    border-color: #f53189;
-  }
+  background-color: #f53189;
+  border-color: #f53189;
+}
 
 .btn-primary {
-    background-color: #8812bb;
-  }
+  background-color: #8812bb;
+}
 
 .button-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 50px;
-    margin-bottom: 100px;
-  }
-  
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 100px;
+}
+
 .time-block {
-    /* Ihre Formatierungsstile hier */
-    font-weight: bold;
-    margin-bottom: 30px;
-    height: auto;
+  /* Ihre Formatierungsstile hier */
+  font-weight: bold;
+  margin-bottom: 30px;
+  height: auto;
 }
 
 @media screen and (max-width: 1200px) {
   .center {
-      padding: 0 20px; /* Reduziere den Seitenabstand für kleinere Bildschirme */
+    padding: 0 20px;
+    /* Reduziere den Seitenabstand für kleinere Bildschirme */
   }
 
   .header-background {
-      height: 100px; /* Ändere die Höhe des Header-Hintergrunds für kleinere Bildschirme */
+    height: 100px;
+    /* Ändere die Höhe des Header-Hintergrunds für kleinere Bildschirme */
   }
-  
+
   .header-background h1 {
-    font-size: 2em; /* Ändere die Schriftgröße der Überschrift für kleinere Bildschirme */
+    font-size: 2em;
+    /* Ändere die Schriftgröße der Überschrift für kleinere Bildschirme */
   }
 }
-
-  

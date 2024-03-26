@@ -1,9 +1,10 @@
-
 .home-page {
     display: flex;
     align-items: center;
-    min-height: calc(100vh - 120px); /* Berechnet die Höhe des Viewports abzüglich der Höhe des Headers */
-    position: relative; /* Position auf relative setzen, damit das img-Element relativ zu diesem Element positioniert wird */
+    min-height: calc(100vh - 120px);
+    /* Berechnet die Höhe des Viewports abzüglich der Höhe des Headers */
+    position: relative;
+    /* Position auf relative setzen, damit das img-Element relativ zu diesem Element positioniert wird */
 }
 
 .background-image {
@@ -13,11 +14,13 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    height:100%;
+    height: 100%;
     object-fit: cover;
     object-position: bottom;
-    opacity: 0.5; /* Setzt die Transparenz des Bildes */
-    z-index: -1; /* Stellt sicher, dass das Bild hinter dem Inhalt liegt */
+    opacity: 0.5;
+    /* Setzt die Transparenz des Bildes */
+    z-index: -1;
+    /* Stellt sicher, dass das Bild hinter dem Inhalt liegt */
 }
 
 /*
@@ -30,11 +33,11 @@ h1 {
 */
 
 h1 {
-    font-size: 3rem; 
+    font-size: 3rem;
     color: #f53189;
-    text-shadow: 1px 1px 2px #000000; 
+    text-shadow: 1px 1px 2px #000000;
     font-weight: bold;
-    padding: 10px; 
+    padding: 10px;
     text-align: center;
     font-family: 'Roboto', sans-serif;
 }
@@ -45,8 +48,8 @@ p {
 
 
 .container {
-    background-color: #f9e424; 
-    padding: 20px; 
+    background-color: #f9e424;
+    padding: 20px;
 }
 
 .link {
@@ -56,6 +59,6 @@ p {
 }
 
 .special-font {
-    font-family: 'Poppins', sans-serif; 
+    font-family: 'Poppins', sans-serif;
     font-size: smaller;
 }
