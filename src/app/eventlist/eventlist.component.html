@@ -1,76 +1,84 @@
 <div class="main-background">
-<div class="header-background">
-    <h1>Aktuelles</h1>
-</div>
-<div class="container">
-    <!-- Filterfeld -->
-    <div class="row filter-row">
-        <div class="col">
-            <input type="text" class="form-control" [(ngModel)]="searchTerm" (input)="filterEventsByTitle()" placeholder="Nach Veranstaltung suchen">
-        </div>
+    <div class="header-background">
+        <h1>Aktuelles</h1>
     </div>
-    <!-- Veranstaltungen -->
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-md-center d-flex align-items-stretch"> 
-      <div class="col d-flex" *ngFor="let event of pagedEvents">
-          <div class="card mb-3 flex-fill" (click)="event.id !== undefined && goToDetail(event.id)">
-                <div class="card-body">
-                    <div class="card-top">
-                        <h5 class="card-title">{{ event.title }}</h5>
-                        <h6 class="card-subtitle text-muted">
-                            <i class="bi bi-calendar-check"></i>
-                            {{ event.date | date:'dd.MM.yyyy' }} | {{ event.starttime }} - {{ event.endtime }}</h6>
+    <div class="container">
+        <!-- Filterfeld -->
+        <div class="row filter-row">
+            <div class="col">
+                <input type="text" class="form-control" [(ngModel)]="searchTerm" (input)="filterEventsByTitle()"
+                    placeholder="Nach Veranstaltung suchen">
+            </div>
+        </div>
+        <!-- Veranstaltungen -->
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 justify-content-md-center d-flex align-items-stretch">
+            <div class="col d-flex" *ngFor="let event of pagedEvents">
+                <div class="card mb-3 card-fixed-width" (click)="event.id !== undefined && goToDetail(event.id)">
+                    <div class="card-body">
+                        <div class="card-top">
+                            <h5 class="card-title">{{ event.title }}</h5>
+                            <h6 class="card-subtitle text-muted">
+                                <i class="bi bi-calendar-check"></i>
+                                {{ event.date | date:'dd.MM.yyyy' }} | {{ event.starttime }} - {{ event.endtime }}
+                            </h6>
+                        </div>
+                        <div class="clamp-3-lines" [attr.title]="event.description">
+                            <p class="card-text">{{ event.description }}</p>
+                        </div>
+                        <p class="card-text">
+                            <a [routerLink]="['/detail', event.id]">Weitere Infos ...</a>
+                        </p>
                     </div>
-                    <div class="clamp-3-lines" [attr.title]="event.description">
-                        <p class="card-text">{{ event.description }}</p>
-                    </div>
-                    <p class="card-text">
-                        <a [routerLink]="['/detail', event.id]">Weitere Infos ...</a>
-                    </p>
                 </div>
             </div>
         </div>
+
+
+        <!-- Pagination -->
+        <div class="row">
+            <div class="col">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item" [class.disabled]="currentPage === 1">
+                            <a class="page-link" href="#" aria-label="Previous"
+                                (click)="previousPage(); $event.preventDefault()" tabindex="-1"
+                                [attr.aria-disabled]="currentPage === 1 ? true : null">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li class="page-item" *ngFor="let page of pages" [class.active]="currentPage === page">
+                            <a class="page-link" href="#" (click)="setPage(page); $event.preventDefault()">{{ page
+                                }}</a>
+                        </li>
+                        <li class="page-item" [class.disabled]="currentPage === totalPages">
+                            <a class="page-link" href="#" aria-label="Next"
+                                (click)="nextPage(); $event.preventDefault()"
+                                [attr.aria-disabled]="currentPage === totalPages ? true : null">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
     </div>
-
-
-  <!-- Pagination -->
-  <div class="row">
-      <div class="col">
-          <nav aria-label="Page navigation example">
-              <ul class="pagination justify-content-center">
-                  <li class="page-item" [class.disabled]="currentPage === 1">
-                      <a class="page-link" href="#" aria-label="Previous" (click)="previousPage(); $event.preventDefault()" tabindex="-1" [attr.aria-disabled]="currentPage === 1 ? true : null">
-                          <span aria-hidden="true">&laquo;</span>
-                      </a>
-                  </li>
-                  <li class="page-item" *ngFor="let page of pages" [class.active]="currentPage === page">
-                      <a class="page-link" href="#" (click)="setPage(page); $event.preventDefault()">{{ page }}</a>
-                  </li>
-                  <li class="page-item" [class.disabled]="currentPage === totalPages">
-                      <a class="page-link" href="#" aria-label="Next" (click)="nextPage(); $event.preventDefault()" [attr.aria-disabled]="currentPage === totalPages ? true : null">
-                          <span aria-hidden="true">&raquo;</span>
-                      </a>
-                  </li>
-              </ul>
-          </nav>
-      </div>
-  </div>
-</div>
 
 </div>
 
 <!-- Löschen Bestätigungsmodal -->
 <ng-template #confirmDeleteModal let-modal>
-  <div class="modal-header">
-      <h4 class="modal-title" id="modal-basic-title">Veranstaltung löschen</h4>
-      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-          <span aria-hidden="true">&times;</span>
-      </button>
-  </div>
-  <div class="modal-body">
-      Sind Sie sicher, dass Sie diese Veranstaltung löschen möchten?
-  </div>
-  <div class="modal-footer">
-      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Close click')">Abbrechen</button>
-      <button type="button" class="btn btn-danger" (click)="confirmDelete(); modal.close('Close click')">Löschen</button>
-  </div>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Veranstaltung löschen</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        Sind Sie sicher, dass Sie diese Veranstaltung löschen möchten?
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Close click')">Abbrechen</button>
+        <button type="button" class="btn btn-danger"
+            (click)="confirmDelete(); modal.close('Close click')">Löschen</button>
+    </div>
 </ng-template>

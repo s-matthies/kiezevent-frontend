@@ -8,30 +8,29 @@ import { FormsModule } from '@angular/forms';
 
 
 @Component({
-    selector: 'app-eventlist',
-    standalone: true,
-    templateUrl: './eventlist.component.html',
-    styleUrl: './eventlist.component.css',
-    imports: [CommonModule, FormsModule, RouterModule]
+  selector: 'app-eventlist',
+  standalone: true,
+  templateUrl: './eventlist.component.html',
+  styleUrl: './eventlist.component.css',
+  imports: [CommonModule, FormsModule, RouterModule]
 })
 
-export class EventlistComponent implements OnInit{
- // Oninit -> Lifecycle-Hook, der beim Initialisieren der Komponente aufgerufen wird
+export class EventlistComponent implements OnInit {
+  // Oninit -> Lifecycle-Hook, der beim Initialisieren der Komponente aufgerufen wird
 
-  bs = inject (BackendService); // BackendService per Dependency Injection einbinden | andere Möglichkeit: constructor(private bs : BackendService) { }
-  private modalService = inject(NgbModal); 
-  private route = inject(ActivatedRoute) 
-  private router = inject(Router); 
- 
-  events: Event[] = []; 
+  bs = inject(BackendService); // BackendService per Dependency Injection einbinden | andere Möglichkeit: constructor(private bs : BackendService) { }
+  private modalService = inject(NgbModal);
+  private router = inject(Router);
+
+  events: Event[] = [];
   pages: number[] = []; // Array für die Seitenzahlen
   totalPages: number = 0;
   pagedEvents: Event[] = []; // Array für die Events auf der aktuellen Seite
-  currentPage = 1; 
+  currentPage = 1;
   pageSize = 9; // Anzahl der Events pro Seite
-  selectedEvent?: Event; 
+  selectedEvent?: Event;
   searchTerm: string = ''; // Der Suchbegriff, der vom Benutzer eingegeben wird
- 
+
   ngOnInit(): void {
     this.readAllEvents(); // beim Initialisieren der Komponente alle Events auslesen
   }
@@ -126,5 +125,4 @@ export class EventlistComponent implements OnInit{
 
 }
 
-        
-          
+
