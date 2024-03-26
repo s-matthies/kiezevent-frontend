@@ -1,9 +1,6 @@
   .navbar {
     padding: 25px 0;
     background-color: #e0f0f0;
-    /* Farbverlauf*/
-    /*background-image: linear-gradient(90deg, #009970 0%, #e0f0f0 100%);*/
-    /*background-image: linear-gradient(50deg, #129fbb 0%, #3cf8bc 100%);*/
     background-image: linear-gradient(50deg, #8812bb 0%, #f53189 100%);
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
   }
@@ -23,7 +20,6 @@
     color: #f8f8f8;
     font-size: 38px;
     transition: 0.3s color;
-    /* Schatten */
     text-shadow: 2px 2px 2px #b9abab;
     margin-left: 30px;
   }
