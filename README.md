@@ -30,25 +30,37 @@ Die Anwendung ermöglicht es, auf die folgenden Funktionen zuzugreifen:
 
  - **Alle Veranstaltungen anzeigen (Filtern nach Veranstaltungsname möglich)** 
 
+![Liste mit allen Veranstaltungen](./src/assets/images/eventlist.jpg)
 
 
 
 - **Duch die Auswahl einer Veranstaltung, wird eine detaillierte Ansicht mit zusätzlichen Informationen gezeigt**
 
+![Detailansicht eines Events](./src/assets/images/detail.jpg)
 
 
 
+- **Veranstaltung aktualisieren** 
 
-- **Veranstaltung aktualisieren:** Aktualisieren Sie die Details einer Veranstaltung.
+![Aktualsieren einer Veranstaltung](./src/assets/images/update.jpg)
+
 
   
+- **Veranstaltung hinzufügen**
+
+  ![Eine Veranstaltung hinzufügen](./src/assets/images/create_event.jpg)
+
+
   
-- **Veranstaltung hinzufügen:** Fügen Sie eine neue Veranstaltung hinzu.
-- **Veranstaltung löschen:** Entfernen Sie eine Veranstaltung aus der Liste.
+- **Veranstaltung löschen** 
+
 
 ## Technologien
 
 - Angular: Dieses Projekt wurde mit [Angular CLI](https://github.com/angular/angular-cli) Version 17.0.3 erstellt.
 - Bootstrap: Nutzung von Bootsrap für das UI-Design. | Version
 
+## Backend
+
+Das Frontend ist mit einem Backend-Server verbunden, der die Daten für die Veranstaltungen bereitstellt. Weitere Informationen zur Einrichtung und Verwendung des Backend-Servers finden Sie in der [Backend-README](https://github.com/s-matthies/Kiezevent-Backend.git).
 
