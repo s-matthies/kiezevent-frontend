@@ -14,7 +14,7 @@ import { Event } from '../shared/event';
   styleUrl: './update-event.component.css'
 })
 
-export class UpdateEventComponent implements OnInit{
+export class UpdateEventComponent implements OnInit {
   id: number = 0;
   event!: Event;
   closeResult = '';
@@ -25,12 +25,12 @@ export class UpdateEventComponent implements OnInit{
   endtimeFC = new FormControl({ hours: 0, minutes: 0 } as Time, [Validators.required]);
   locationFC = new FormControl('', [Validators.required]);
   descriptionFC = new FormControl('', [Validators.required]);
-  linkFC = new FormControl('',[Validators.pattern('^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,})([\/\w \.-]*)*\/?$')]);
+  linkFC = new FormControl('', [Validators.pattern('^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,})([\/\w \.-]*)*\/?$')]);
 
-  private modalService = inject(NgbModal); 
-  private bs = inject(BackendService) 
-  private route = inject(ActivatedRoute) 
-  private router = inject(Router); 
+  private modalService = inject(NgbModal);
+  private bs = inject(BackendService)
+  private route = inject(ActivatedRoute)
+  private router = inject(Router);
 
   ngOnInit(): void {
     const idParam = this.route.snapshot.paramMap.get('id');
@@ -40,23 +40,23 @@ export class UpdateEventComponent implements OnInit{
 
   readOne(id: number): void {
     this.bs.getEventById(id).subscribe(
-    {
-      next: (response: Event) => {
-              this.event = response;
-              console.log(this.event);
-              this.titleFC.setValue(this.event.title);
-              this.dateFC.setValue(new Date(this.event.date));
-              this.starttimeFC.setValue(this.event.starttime);
-              this.endtimeFC.setValue(this.event.endtime);
-              this.locationFC.setValue(this.event.location);
-              this.descriptionFC.setValue(this.event.description);
-              this.linkFC.setValue(this.event.link);
-              return this.event;
-              
-      },
-      error: (err) => console.log(err),
-      complete: () => console.log('readOne() completed')
-    });
+      {
+        next: (response: Event) => {
+          this.event = response;
+          console.log(this.event); // for debugging
+          this.titleFC.setValue(this.event.title);
+          this.dateFC.setValue(new Date(this.event.date));
+          this.starttimeFC.setValue(this.event.starttime);
+          this.endtimeFC.setValue(this.event.endtime);
+          this.locationFC.setValue(this.event.location);
+          this.descriptionFC.setValue(this.event.description);
+          this.linkFC.setValue(this.event.link);
+          return this.event;
+
+        },
+        error: (err) => console.log(err),
+        complete: () => console.log('readOne() completed')
+      });
   }
 
 
@@ -64,9 +64,8 @@ export class UpdateEventComponent implements OnInit{
     return this.titleFC.valid && this.dateFC.valid && this.locationFC.valid && this.starttimeFC.valid && this.endtimeFC.valid && this.descriptionFC.valid && this.linkFC.valid;
   }
 
-  updateEvent(content: TemplateRef<any>) { 
-    if(this.formValid())
-    {
+  updateEvent(content: TemplateRef<any>) {
+    if (this.formValid()) {
       let event = {
         id: this.id,
         title: this.titleFC.value!,
@@ -81,27 +80,26 @@ export class UpdateEventComponent implements OnInit{
       console.log('event: ', event) // for debugging
 
       this.bs.updateOneMember(event, this.id).subscribe({
-          next: (response) => console.log('response', response),
-          error: (err) => console.log(err),
-          complete: () => console.log('update completed')
+        next: (response) => console.log('response', response),
+        error: (err) => console.log(err),
+        complete: () => console.log('update completed')
       });
 
       // Modal-Dialog
       this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result
-      .then(
-        (result) => {
-          this.closeResult = `Closed with: ${result}`;
-          this.router.navigate(['/members']);
-        },
-        (reason) => {
-          this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-        },
-      );
+        .then(
+          (result) => {
+            this.closeResult = `Closed with: ${result}`;
+            this.router.navigate(['/members']);
+          },
+          (reason) => {
+            this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+          },
+        );
 
       console.log('new event: ', event)
     }
-    else
-    {
+    else {
       console.warn('form still invalid!')
     }
   }
@@ -111,14 +109,14 @@ export class UpdateEventComponent implements OnInit{
   }
 
   private getDismissReason(reason: any): string {
-  switch (reason) {
-    case ModalDismissReasons.ESC:
-      return 'by pressing ESC';
-    case ModalDismissReasons.BACKDROP_CLICK:
-      return 'by clicking on a backdrop';
-    default:
-      return `with: ${reason}`;
+    switch (reason) {
+      case ModalDismissReasons.ESC:
+        return 'by pressing ESC';
+      case ModalDismissReasons.BACKDROP_CLICK:
+        return 'by clicking on a backdrop';
+      default:
+        return `with: ${reason}`;
+    }
   }
-}
 
 }
