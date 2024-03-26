@@ -14,7 +14,7 @@ h1 {
     padding: 10px; 
     text-align: center;
     font-family: 'Roboto', sans-serif;
-    margin-top: 30px;
+    margin-top: 40px;
   }
 
 .header-background {
@@ -55,15 +55,17 @@ h1 {
     display: flex;
     justify-content: center;
     margin-top: 50px;
+    margin-bottom: 100px;
   }
   
 .time-block {
     /* Ihre Formatierungsstile hier */
     font-weight: bold;
     margin-bottom: 30px;
+    height: auto;
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 1200px) {
   .center {
       padding: 0 20px; /* Reduziere den Seitenabstand für kleinere Bildschirme */
   }
@@ -74,7 +76,7 @@ h1 {
   
   .header-background h1 {
     font-size: 2em; /* Ändere die Schriftgröße der Überschrift für kleinere Bildschirme */
-}
+  }
 }
 
   
