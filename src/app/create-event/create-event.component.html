@@ -1,14 +1,11 @@
 <form>
-    <div class="header-background">
-        <h1 class="my-4">Veranstaltung hinzufügen</h1>
-    </div>
     <div class="container mt-5">
-        
+        <h1 class="my-4">Veranstaltung hinzufügen</h1>
         <div class="row mb-2">
             <div class="col-md-6">
                 <div class="form-floating">
-                    <input type="text" class="form-control" id="idFirstname" placeholder="Titel der Veranstaltung" [formControl]="titleFC"
-                    [class]="submitClicked && (titleFC.valid ? 'is-valid' : 'is-invalid')">
+                    <input type="text" class="form-control" id="idFirstname" placeholder="Titel der Veranstaltung"
+                        [formControl]="titleFC" [class]="submitClicked && (titleFC.valid ? 'is-valid' : 'is-invalid')">
                     <label for="idFirstname">Veranstaltungsname</label>
                     <div class="invalid-feedback">
                         Bitte geben Sie den Titel der Veranstaltung ein.
@@ -17,8 +14,8 @@
             </div>
             <div class="col-md-6">
                 <div class="form-floating">
-                    <input type="date" class="form-control" id="idLastname" placeholder="Datum der Veranstaltung " [formControl]="dateFC"
-                        [class]="submitClicked && (dateFC.valid ? 'is-valid' : 'is-invalid')">
+                    <input type="date" class="form-control" id="idLastname" placeholder="Datum der Veranstaltung "
+                        [formControl]="dateFC" [class]="submitClicked && (dateFC.valid ? 'is-valid' : 'is-invalid')">
                     <label for="idLastname">Datum</label>
                     <div class="invalid-feedback">
                         Bitte geben Sie das Datum der Veranstaltung ein.
@@ -30,7 +27,8 @@
         <div class="row mb-2">
             <div class="col-md-6">
                 <div class="form-floating">
-                    <input type="time" class="form-control" id="starttime" placeholder="Beginn der Veranstaltung" [formControl]="starttimeFC"
+                    <input type="time" class="form-control" id="starttime" placeholder="Beginn der Veranstaltung"
+                        [formControl]="starttimeFC"
                         [class]="submitClicked && (starttimeFC.valid ? 'is-valid' : 'is-invalid')">
                     <label for="starttime">Beginn</label>
                     <div class="invalid-feedback">
@@ -40,7 +38,8 @@
             </div>
             <div class="col-md-6">
                 <div class="form-floating">
-                    <input type="time" class="form-control" id="endtime" placeholder="Ende der Veranstaltung" [formControl]="endtimeFC"
+                    <input type="time" class="form-control" id="endtime" placeholder="Ende der Veranstaltung"
+                        [formControl]="endtimeFC"
                         [class]="submitClicked && (endtimeFC.valid ? 'is-valid' : 'is-invalid')">
                     <label for="endtime">Ende</label>
                     <div class="invalid-feedback">
@@ -50,10 +49,11 @@
             </div>
         </div>
 
-        <div class="row mb-2"> 
+        <div class="row mb-2">
             <div class="col-md-6">
                 <div class="form-floating">
-                    <input type="text" class="form-control" id="location" placeholder="Ort der Veranstaltung" [formControl]="locationFC"
+                    <input type="text" class="form-control" id="location" placeholder="Ort der Veranstaltung"
+                        [formControl]="locationFC"
                         [class]="submitClicked && (locationFC.valid ? 'is-valid' : 'is-invalid')">
                     <label for="location">Ort</label>
                     <div class="invalid-feedback">
@@ -63,8 +63,8 @@
             </div>
             <div class="col-md-6">
                 <div class="form-floating">
-                    <input type="text" class="form-control" id="link" placeholder="Link zur Veranstaltung" [formControl]="linkFC"
-                        [class]="submitClicked && (linkFC.valid ? 'is-valid' : 'is-invalid')">
+                    <input type="text" class="form-control" id="link" placeholder="Link zur Veranstaltung"
+                        [formControl]="linkFC" [class]="submitClicked && (linkFC.valid ? 'is-valid' : 'is-invalid')">
                     <label for="link">Link (optional)</label>
                     <div *ngIf="linkFC.invalid && (linkFC.dirty || linkFC.touched)" class="invalid-feedback">
                         Bitte geben Sie einen gültigen Link zur Veranstaltung ein (optional).
@@ -76,23 +76,25 @@
         <div class="row mb-3">
             <div class="col-md-12">
                 <div class="form-floating">
-                    <textarea class="form-control" id="description" placeholder="Beschreibung der Veranstaltung" [formControl]="descriptionFC"
+                    <textarea class="form-control" id="description" placeholder="Beschreibung der Veranstaltung"
+                        [formControl]="descriptionFC"
                         [class]="submitClicked && (descriptionFC.valid ? 'is-valid' : 'is-invalid')"> </textarea>
                     <label for="description">Beschreibung</label>
-                <div class="invalid-feedback">
-                    Bitte geben Sie eine kurze Beschreibung der Veranstaltung ein.
+                    <div class="invalid-feedback">
+                        Bitte geben Sie eine kurze Beschreibung der Veranstaltung ein.
+                    </div>
                 </div>
             </div>
         </div>
-        </div>
-        
 
-        
+
+
         <!-- Buttons -->
-        <div class="mb-6"> 
+        <div class="mb-6">
             <div class="row mb-3">
                 <div class="col-12 col-md-6 mb-3 mb-md-0">
-                    <button type="button" class="w-100 btn btn-success" (click)="createEvent(content)">Hinzufügen</button>
+                    <button type="button" class="w-100 btn btn-success"
+                        (click)="createEvent(content)">Hinzufügen</button>
                 </div>
                 <div class="col-12 col-md-6">
                     <button type="button" class="w-100 btn btn-secondary" (click)="cancel()">Abbrechen</button>
@@ -102,55 +104,55 @@
     </div>
 
 
-<!-- Modal -->
-<ng-template #content let-modal>
-    <div class="modal-header">
-      <h6 class="modal-title" id="modal-basic-title">Neue Veranstaltung wurde hinzugefuegt!</h6>
-      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
-    </div>
-    <div class="modal-body">
-      <table class="table">
-        <tbody>
-          <tr>
-            <td>Titel</td>
-            <td>:</td>
-            <td>{{ titleFC.value }}</td>
-          </tr>
-          <tr>
-            <td>Datum</td>
-            <td>:</td>
-            <td>{{ dateFC.value }}</td>
-          </tr>
-          <tr>
-            <td>Beginn</td>
-            <td>:</td>
-            <td>{{ starttimeFC.value }}</td>
-          </tr>
-          <tr>
-            <td>Ende</td>
-            <td>:</td>
-            <td>{{ endtimeFC.value }}</td>
-          </tr>
-          <tr>
-            <td>Ort</td>
-            <td>:</td>
-            <td>{{ locationFC.value }}</td>
-          </tr>
-          <tr>
-            <td>Beschreibung</td>
-            <td>:</td>
-            <td>{{ descriptionFC.value }}</td>
-          </tr>
-          <tr>
-            <td>Link</td>
-            <td>:</td>
-            <td>{{ linkFC.value }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
-    </div>
-  </ng-template>
+    <!-- Modal -->
+    <ng-template #content let-modal>
+        <div class="modal-header">
+            <h6 class="modal-title" id="modal-basic-title">Neue Veranstaltung wurde hinzugefuegt!</h6>
+            <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+        </div>
+        <div class="modal-body">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td>Titel</td>
+                        <td>:</td>
+                        <td>{{ titleFC.value }}</td>
+                    </tr>
+                    <tr>
+                        <td>Datum</td>
+                        <td>:</td>
+                        <td>{{ dateFC.value }}</td>
+                    </tr>
+                    <tr>
+                        <td>Beginn</td>
+                        <td>:</td>
+                        <td>{{ starttimeFC.value }}</td>
+                    </tr>
+                    <tr>
+                        <td>Ende</td>
+                        <td>:</td>
+                        <td>{{ endtimeFC.value }}</td>
+                    </tr>
+                    <tr>
+                        <td>Ort</td>
+                        <td>:</td>
+                        <td>{{ locationFC.value }}</td>
+                    </tr>
+                    <tr>
+                        <td>Beschreibung</td>
+                        <td>:</td>
+                        <td>{{ descriptionFC.value }}</td>
+                    </tr>
+                    <tr>
+                        <td>Link</td>
+                        <td>:</td>
+                        <td>{{ linkFC.value }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
+        </div>
+    </ng-template>
 </form>
