@@ -4,9 +4,7 @@
   width: 100%;
   background-color: #680e8e;
   text-align: center;
-  padding: 10px 0;
+  padding: 10px 0; 
   font-size: 14px;
-  color: #fff;
-  border-top: 1px solid #e9ecef;
-  z-index: 100;
+  color: #fff
 }
