@@ -1,27 +1,54 @@
-# KiezeventFrontend
+# Kiezevent Frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.3.
+Diese Anwendung verwaltet Veranstaltungen in deinem Kiez. Es ist möglich alle Events im Kiez aufzulisten, einzelne Events zu aktualisieren, zu löschen und hinzuzufügen.
 
-## Development server
+## Installation für Entwicklung
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Um das Frontend lokal auszuführen, stellen Sie sicher, dass Node.js auf Ihrem System installiert ist. Führen Sie dann die folgenden Schritte aus:
 
-## Code scaffolding
+1. Das Repository auf Ihren lokalen Rechner klonen: `git clone https://github.com/s-matthies/kiezevent-frontend.git`
+2. In das Verzeichnis des geklonten Repositories navigieren: `cd kiezevent-frontend`
+5. `npm install` ausführen, um alle Abhängigkeiten zu installieren.
+6. `ng serve` ausführen, um die Anwendung lokal zu starten.
+7. Den Browser öffnen und zu `http://localhost:4200/` navigieren, um die Anwendung anzuzeigen.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Zugriff auf das Deployed Frontend
 
-## Build
+Das bereitgestellte Frontend ist unter der folgenden URL verfügbar: [Link zum Projekt](https://kiezevent-frontend.vercel.app/)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+**Hinweis:** Bitte beachten Sie, dass das Backend für diese Anwendung auf einer kostenlosen Instanz bereitgestellt wird, die aufgrund von Inaktivität heruntergefahren werden kann. Dies kann zu Verzögerungen von 50 Sekunden oder mehr bei Anfragen führen, insbesondere wenn das Backend nach einer Phase der Inaktivität wieder aktiviert wird.
 
-## Running unit tests
+## Verwendung
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Die Anwendung ermöglicht es, auf die folgenden Funktionen zuzugreifen:
 
-## Running end-to-end tests
+- **Startseite**
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+![Startseite](./src/assets/images/startseite.jpg)
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+ - **Alle Veranstaltungen anzeigen (Filtern nach Veranstaltungsname möglich)** 
+
+
+
+
+- **Duch die Auswahl einer Veranstaltung, wird eine detaillierte Ansicht mit zusätzlichen Informationen gezeigt**
+
+
+
+
+
+- **Veranstaltung aktualisieren:** Aktualisieren Sie die Details einer Veranstaltung.
+
+  
+  
+- **Veranstaltung hinzufügen:** Fügen Sie eine neue Veranstaltung hinzu.
+- **Veranstaltung löschen:** Entfernen Sie eine Veranstaltung aus der Liste.
+
+## Technologien
+
+- Angular: Dieses Projekt wurde mit [Angular CLI](https://github.com/angular/angular-cli) Version 17.0.3 erstellt.
+- Bootstrap: Nutzung von Bootsrap für das UI-Design. | Version
+
+
