@@ -9,18 +9,23 @@ import { RouterLink } from '@angular/router';
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
+
+
 export class HeaderComponent {
 
   @HostListener('window:scroll', ['$event'])
-onWindowScroll() {
-  let element = document.querySelector('.navbar');
-  if (element) {
-    if (window.pageYOffset > element.clientHeight) {
-      element.classList.add('navbar-shrink');
-    } else {
-      element.classList.remove('navbar-shrink');
+  onWindowScroll() {
+    let navbar = document.querySelector('.navbar'); 
+    let navbarBrand = document.querySelector('.navbar-brand');
+    if (navbar && navbarBrand) {
+      if (window.scrollY > navbar.clientHeight) {
+        navbar.classList.add('navbar-shrink');
+        navbarBrand.classList.add('navbar-brand-shrink'); // Fügen Sie die .navbar-brand-shrink Klasse hinzu
+      } else {
+        navbar.classList.remove('navbar-shrink');
+        navbarBrand.classList.remove('navbar-brand-shrink'); // Entfernen Sie die .navbar-brand-shrink Klasse
+      }
     }
   }
 }
 
-}
