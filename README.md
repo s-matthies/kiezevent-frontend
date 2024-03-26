@@ -26,31 +26,31 @@ Die Anwendung ermöglicht es, auf die folgenden Funktionen zuzugreifen:
 
 ![Startseite](./src/assets/images/startseite.jpg)
 
-
+---
 
  - **Alle Veranstaltungen anzeigen (Filtern nach Veranstaltungsname möglich)** 
 
 ![Liste mit allen Veranstaltungen](./src/assets/images/eventlist.jpg)
 
-
+---
 
 - **Duch die Auswahl einer Veranstaltung, wird eine detaillierte Ansicht mit zusätzlichen Informationen gezeigt**
 
 ![Detailansicht eines Events](./src/assets/images/detail.jpg)
 
-
+---
 
 - **Veranstaltung aktualisieren** 
 
 ![Aktualsieren einer Veranstaltung](./src/assets/images/update.jpg)
 
-
+---
   
 - **Veranstaltung hinzufügen**
 
   ![Eine Veranstaltung hinzufügen](./src/assets/images/create_event.jpg)
 
-
+---
   
 - **Veranstaltung löschen** 
 
