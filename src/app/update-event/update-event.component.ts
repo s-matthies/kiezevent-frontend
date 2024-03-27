@@ -85,6 +85,7 @@ export class UpdateEventComponent implements OnInit {
         complete: () => console.log('update completed')
       });
 
+
       // Modal-Dialog
       this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result
         .then(
@@ -104,6 +105,7 @@ export class UpdateEventComponent implements OnInit {
     }
   }
 
+  
   cancel(): void {
     this.readOne(this.id);
   }
