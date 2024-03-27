@@ -14,7 +14,7 @@ Um das Frontend lokal auszuführen, stellen Sie sicher, dass Node.js auf Ihrem S
 
 ## Zugriff auf das Deployed Frontend
 
-Das bereitgestellte Frontend ist unter der folgenden URL verfügbar: https://kiezevent-frontend.vercel.app/
+Das bereitgestellte Frontend ist unter der folgenden URL verfügbar: https://kiezevents.vercel.app/
 
 **Hinweis:** Bitte beachten Sie, dass das Backend für diese Anwendung auf einer kostenlosen Instanz bereitgestellt wird, die aufgrund von Inaktivität heruntergefahren werden kann. Dies kann zu Verzögerungen von 50 Sekunden oder mehr bei Anfragen führen, insbesondere wenn das Backend nach einer Phase der Inaktivität wieder aktiviert wird.
 
