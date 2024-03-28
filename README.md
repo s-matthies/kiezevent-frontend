@@ -16,7 +16,7 @@ Um das Frontend lokal auszuführen, stellen Sie sicher, dass Node.js auf Ihrem S
 
 Das bereitgestellte Frontend ist unter der folgenden URL verfügbar: https://kiezevents.vercel.app/
 
-**Hinweis:** Bitte beachten Sie, dass das Backend für diese Anwendung auf einer kostenlosen Instanz bereitgestellt wird, die aufgrund von Inaktivität heruntergefahren werden kann. Dies kann zu Verzögerungen von 50 Sekunden oder mehr bei Anfragen führen, insbesondere wenn das Backend nach einer Phase der Inaktivität wieder aktiviert wird.
+**Hinweis:** Bitte beachten Sie, dass das Backend für diese Anwendung auf einer kostenlosen Instanz bereitgestellt wird, die aufgrund von Inaktivität heruntergefahren werden kann. Dies kann zu Verzögerungen von 50 Sekunden oder mehr bei Anfragen führen.
 
 ## Verwendung
 
@@ -57,8 +57,8 @@ Die Anwendung ermöglicht es, auf die folgenden Funktionen zuzugreifen:
 
 ## Technologien
 
-- Angular: Dieses Projekt wurde mit [Angular CLI](https://github.com/angular/angular-cli) Version 17.0.3 erstellt.
-- Bootstrap: Nutzung von Bootsrap für das UI-Design. | Version
+- Angular: Diese Anwendung wurde mit [Angular CLI](https://github.com/angular/angular-cli) Version 17.0.3 erstellt.
+- Bootstrap: Nutzung von Bootsrap für das UI-Design. | Version v5.3.2
 
 ## Backend
 
