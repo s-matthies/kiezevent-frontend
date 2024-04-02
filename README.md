@@ -34,7 +34,7 @@ Die Anwendung ermöglicht es, auf die folgenden Funktionen zuzugreifen:
 
 ---
 
-- **Duch die Auswahl einer Veranstaltung, wird eine detaillierte Ansicht mit zusätzlichen Informationen gezeigt**
+- **Nach der Auswahl einer Veranstaltung, wird eine detaillierte Ansicht mit zusätzlichen Informationen gezeigt**
 
 ![Detailansicht eines Events](./src/assets/images/detail.jpg)
 
